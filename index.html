@@ -120,22 +120,24 @@
 
 <div class="hero">
     <div class="hero-bg"></div>
-    <section class="hero">
-                <div>
-                    <p class="eyebrow"
-                       data-zh="个人主页 · 作品集"
-                       data-en="PERSONAL WEBSITE · PORTFOLIO">
-                        个人主页 · 作品集
-                    </p>
 
-                    <h2 data-zh="敢谒当世贤者!"
-                        data-en="Welcome!">
-                    </h2>
+    <div class="hero-content">
+        <p class="eyebrow"
+           data-zh="个人主页 · 作品集"
+           data-en="PERSONAL WEBSITE · PORTFOLIO">
+            个人主页 · 作品集
+        </p>
 
-                    <p data-zh="当世的君子们你们好呀！"
-                       data-en="Hello World!">
-                    </p>
-                </div>
+        <h2 data-zh="敢谒当世贤者!"
+            data-en="Welcome!">
+            敢谒当世贤者!
+        </h2>
+
+        <p data-zh="当世的君子们你们好呀！"
+           data-en="Hello World!">
+            当世的君子们你们好呀！
+        </p>
+    </div>
 </div>
             </section>
 
@@ -369,9 +371,9 @@
         button.addEventListener("click", () => setLanguage(button.dataset.lang));
     });
 
-    document.querySelectorAll(".year").forEach(element => {
-        element.textContent = new Date().getFullYear();
-    });
+    document.querySelectorAll("[data-zh][data-en]").forEach(element => {
+    element.textContent = element.dataset[language];
+});
 
     try {
         const savedLanguage = sessionStorage.getItem("portfolio-language");
@@ -381,7 +383,7 @@
     } catch (_) {}
 
     // 滚动时高亮对应导航项
-    const sections = document.querySelectorAll(".main-content .section");
+    const sections = document.querySelectorAll(".content .section");
     const navLinks = document.querySelectorAll(".nav-link");
 
     if ("IntersectionObserver" in window) {
