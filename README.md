@@ -1,6 +1,6 @@
 # Yuan Xinyi — Personal Website
 
-一个简洁、可维护的中英双语个人主页，适用于 GitHub Pages。主要是通过Chat GPT编写的。
+一个简洁、可维护的中英双语个人主页，适用于 GitHub Pages。主要是通过Chat GPT编写的，DeepSeek也出力良多，大家都是好样的！
 
 ## 文件结构
 
@@ -25,3 +25,4 @@
 * 编辑内容：改html文件
 * 编辑页面外观：改css文件
 * 编辑某些功能：改js文件
+* 注释给的非常齐全

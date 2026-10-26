@@ -1,6 +1,4 @@
-
 /* ===== 1. 全局配色：修改这里可以改变整站风格 ===== */
-
 
 :root {
     /* ===== 01. 品牌与强调色 ===== */
@@ -78,6 +76,8 @@
     /* ===== 09. 布局参数（非颜色） ===== */
     --sidebar-width: 285px;
     --radius: 16px;
+
+    --img-filter: none;   /* 浅色模式不加滤镜 */
 }
 
 
@@ -156,11 +156,13 @@
     /* 项目卡片阴影 */
     --project-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
     --project-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.24);
+
+    --img-filter: brightness(0.82) contrast(0.92) saturate(0.85);
 }
 
 
 * {
-    box-sizing: border-box; /*统一盒模型计算方式，大概就是设置内容块大小的，一般不用改*/
+    box-sizing: border-box;
 }
 
 /* 设置滚动行为，平滑滚动，滚动到目标位置以上85px处 */
@@ -171,11 +173,11 @@ html {
 
 /* 设置页面整体风格 */
 body {
-    margin: 0;  /*去掉浏览器默认的外边框*/
-    color: var(--ink);  /*默认文本颜色*/
-    background: var(--page);    /*设置整个页面的背景色*/
-    font-family: "Segoe UI", "Microsoft YaHei", sans-serif; /*设置字体*/
-    line-height: 1.75;  /*设置行高*/
+    margin: 0;
+    color: var(--ink);
+    background: var(--page);
+    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    line-height: 1.75;
 }
 
 /* 设置链接默认样式 */
@@ -207,8 +209,8 @@ a {
     overflow-y: auto;
     padding: 25px 27px 18px;
 
-    border-right: 1px solid var(--line);    /*右侧分割线*/
-    background: var(--paper);  /*背景色*/
+    border-right: 1px solid var(--line);
+    background: var(--paper);
 }
 
 .main-column {
@@ -230,20 +232,12 @@ a {
     letter-spacing: 1px;
 }
 
-.logo span {
-    color: var(--primary);
+/* 个人信息区：整体居中 */
+.profile {
+    text-align: center;
 }
 
 /* 头像区域 */
-.profile-photo,
-.avatar-placeholder {
-    width: 125px;
-    height: 125px;
-    margin-bottom: 20px;
-    border-radius: 50%;
-}
-
-/* 具体头像 */
 .avatar {
     display: block;
     width: 125px;
@@ -260,6 +254,10 @@ a {
 .avatar-placeholder {
     display: none;
     place-items: center;
+    width: 125px;
+    height: 125px;
+    margin-bottom: 20px;
+    border-radius: 50%;
     padding: 12px;
     border: 1px dashed var(--line-strong);
     color: var(--subtle);
@@ -274,7 +272,6 @@ a {
     font-size: 27px;
     line-height: 1.35;
     letter-spacing: 1px;
-    text-align: center;
 }
 
 /* 身份 */
@@ -321,7 +318,7 @@ a {
     width: 32px;
     height: 32px;
     border-radius: 9px;
-    color: var(--danger);
+    color: var(--primary);
     background: var(--primary-light);
     font-size: 17px;
 }
@@ -410,6 +407,7 @@ a {
     z-index: 15;
 
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
@@ -419,7 +417,6 @@ a {
 
     border-bottom: 1px solid var(--line);
     background: var(--paper);
-    backdrop-filter: blur(14px);
 }
 
 .navigation {
@@ -441,7 +438,7 @@ a {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-dark);
+    color: var(--primary-hover);
 }
 
 .nav-link.active::after {
@@ -510,7 +507,6 @@ a {
     isolation: isolate;
     overflow: hidden;
 
-    border: 1px solid transparent;
     border-radius: 18px;
     background: transparent;
 }
@@ -521,13 +517,12 @@ a {
     inset: -5px;
     z-index: -1;
 
-    background-image: url("images/hero-bg.jpg");
+    background-image: url("images/hero-bg.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     opacity: 0.8;
-    filter: blur(0px);
 }
 
 /* Hero 图片渐变蒙版 */
@@ -551,7 +546,7 @@ a {
 /* Hero 顶部小标题 */
 .eyebrow {
     margin: 0 0 12px;
-    color: var(--blue-dark);
+    color: var(--primary);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.7px;
@@ -563,7 +558,6 @@ a {
 .section {
     padding: 32px 0 34px;
     border-bottom: 1px solid var(--line);
-    scroll-margin-top: 85px;
 }
 
 .section-heading {
@@ -629,7 +623,7 @@ a {
 /* ===== 8. 教育背景 ===== */
 .education-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 0.9fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 20px;
 }
@@ -638,19 +632,6 @@ a {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-}
-
-/* 圆形图标 */
-.round-icon {
-    display: grid;
-    flex: 0 0 43px;
-    place-items: center;
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    color: var(--tag-text);
-    background: var(--tag-bg);
-    font-size: 19px;
 }
 
 /* 学校 Logo */
@@ -682,58 +663,200 @@ a {
     font-size: 10px;
 }
 
-/* 校园图片占位区 */
-.campus-placeholder {
-    display: flex;
-    min-height: 125px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-    padding: 15px;
+/* 9.动态 */
 
-    border: 1px dashed var(--line-strong);
-    border-radius: 12px;
-    color: var(--muted);
-    background: var(--surface-muted);
-    text-align: center;
-    font-size: 11px;
+/* ===== 动态时间轴 ===== */
+.news-timeline {
+    position: relative;
+    padding: 4px 0;
 }
 
-.campus-placeholder > span {
+/* 每一条动态 */
+.news-item {
     display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 22px;
+    position: relative;
+    padding-bottom: 26px;
+}
+
+/* 左侧时间 */
+.news-date {
+    position: relative;
+    display: block;
+    padding: 3px 0 0 18px;
+    color: var(--subtle);
+    font-size: 11px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+/* 连接线：从本条圆点中心，画到下一条圆点中心；最后一条不画 */
+.news-item:not(.is-last-visible)::before {
+    content: "";
+    position: absolute;
+    top: 10.5px;        /* 圆点中心 */
+    bottom: -10.5px;    /* 下一条圆点中心 */
+    left: 5px;          /* 与圆心 5.5px 对齐 */
+    width: 0;
+    border-left: 1px dashed var(--line-strong);
+    pointer-events: none;
+}
+
+/* 时间轴上的圆点 */
+.news-date::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--line-strong);
     border-radius: 50%;
+    background: var(--surface);
+    transition: all 0.25s ease;
+}
+
+/* 悬停效果保留 */
+.news-item:hover .news-date {
     color: var(--primary-hover);
-    background: var(--primary-light);
-    font-size: 9px;
     font-weight: 700;
 }
 
-.campus-placeholder small {
-    color: var(--subtle);
-    font-size: 10px;
+.news-item:hover .news-date::after {
+    border-color: var(--primary);
+    background: var(--primary);
+    transform: scale(1.2);
 }
 
-
-
-
-
-/* ===== 9. 项目卡片 ===== */
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.9fr;
-    align-items: center;
-    gap: 28px;
+.news-item:hover .news-content {
+    background: var(--surface-hover);
+    transform: translateX(4px);
 }
 
-/* 项目纵向排列，每个项目占一整行 */
-.project-grid {
+.news-item:hover .news-content p {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* 窄屏适配 */
+@media (max-width: 600px) {
+    .news-item {
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .news-content {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+}
+
+/* ===== 动态分页 ===== */
+.news-pagination {
     display: flex;
-    flex-direction: column;
-    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.page-button {
+    min-width: 32px;
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    background: var(--surface);
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.page-button:hover:not(:disabled) {
+    color: var(--link-hover);
+    border-color: var(--line-strong);
+    background: var(--surface-hover);
+}
+
+.page-button.active {
+    color: var(--on-primary);
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.page-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 右侧内容 */
+.news-content {
+    min-width: 0;
+    padding: 0 12px 12px;
+    border-radius: 8px;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.news-content p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    transition:
+        color 0.25s ease,
+        font-weight 0.25s ease;
+}
+
+/* 鼠标悬停时的变化 */
+.news-item:hover .news-date {
+    color: var(--primary-hover);
+    font-weight: 700;
+}
+
+.news-item:hover .news-date::before {
+    background: var(--primary-light);
+}
+
+.news-item:hover .news-date::after {
+    border-color: var(--primary);
+    background: var(--primary);
+    transform: scale(1.2);
+}
+
+.news-item:hover .news-content {
+    background: var(--surface-hover);
+    transform: translateX(4px);
+}
+
+.news-item:hover .news-content p {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* 窄屏适配 */
+@media (max-width: 600px) {
+    .news-item {
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .news-content {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+}
+
+
+
+/* ===== 10. 项目卡片 ===== */
+
+/* 项目之间留出间距 */
+.project-card + .project-card {
+    margin-top: 22px;
 }
 
 /* 单个项目卡片 */
@@ -871,7 +994,7 @@ a {
 
 
 
-/* ===== 10. 技能与联系方式 ===== */
+/* ===== 11. 技能 ===== */
 .skill-list {
     display: flex;
     flex-wrap: wrap;
@@ -895,136 +1018,10 @@ a {
     font-size: 12px;
 }
 
-/* ===== 动态时间轴 ===== */
-.news-timeline {
-    position: relative;
-    padding: 4px 0;
-}
-
-/* 每一条动态 */
-.news-item {
-    display: grid;
-    grid-template-columns: 90px minmax(0, 1fr);
-    gap: 22px;
-    position: relative;
-    padding-bottom: 26px;
-}
-
-/* 左侧时间 */
-.news-date {
-    position: relative;
-    display: block;
-    padding: 3px 0 0 18px;
-    color: var(--subtle);
-    font-size: 11px;
-    font-weight: 500;
-    transition: color 0.25s ease;
-}
-
-/* 连接各条动态的竖线 */
-.news-date::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: -27px;
-    left: 3px;
-    width: 1px;
-    background: var(--line);
-    transition: background 0.25s ease;
-}
-
-/* 时间轴上的圆点 */
-.news-date::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 0;
-    width: 7px;
-    height: 7px;
-    border: 2px solid var(--line-strong);
-    border-radius: 50%;
-    background: var(--surface);
-    transition: all 0.25s ease;
-}
-
-/* 最后一条动态不再延伸竖线 */
-.news-item:last-child .news-date::before {
-    display: none;
-}
-
-/* 右侧内容 */
-.news-content {
-    min-width: 0;
-    padding: 0 12px 12px;
-    border-radius: 8px;
-    transition:
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-.news-content p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.9;
-    transition:
-        color 0.25s ease,
-        font-weight 0.25s ease;
-}
-
-/* 鼠标悬停时的变化 */
-.news-item:hover .news-date {
-    color: var(--primary-hover);
-    font-weight: 700;
-}
-
-.news-item:hover .news-date::before {
-    background: var(--primary-light);
-}
-
-.news-item:hover .news-date::after {
-    border-color: var(--primary);
-    background: var(--primary);
-    transform: scale(1.2);
-}
-
-.news-item:hover .news-content {
-    background: var(--surface-hover);
-    transform: translateX(4px);
-}
-
-.news-item:hover .news-content p {
-    color: var(--ink);
-    font-weight: 600;
-}
-
-/* 窄屏适配 */
-@media (max-width: 600px) {
-    .news-item {
-        grid-template-columns: 76px minmax(0, 1fr);
-        gap: 10px;
-    }
-
-    .news-content {
-        padding-right: 8px;
-        padding-left: 8px;
-    }
-}
-
-/* ===== 页脚 ===== */
-.main-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px 0 25px;
-    color: var(--subtle);
-    font-size: 10px;
-}
 
 
 
-
-/* ===== 11. 平板适配 ===== */
+/* ===== 12. 平板适配 ===== */
 @media (max-width: 1100px) {
     :root {
         --sidebar-width: 245px;
@@ -1053,23 +1050,11 @@ a {
     .hero {
         padding: 24px;
     }
-
-    .hero-art {
-        flex-basis: 120px;
-    }
-
-    .education-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .campus-placeholder {
-        grid-column: 1 / -1;
-    }
 }
 
 
 
-/* ===== 12. 手机适配：侧栏变为顶部个人简介 ===== */
+/* ===== 13. 手机适配：侧栏变为顶部个人简介 ===== */
 @media (max-width: 760px) {
     .sidebar {
         position: relative;
@@ -1089,10 +1074,8 @@ a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
-    .profile-photo,
     .avatar,
     .avatar-placeholder {
         width: 88px;
@@ -1113,9 +1096,7 @@ a {
     .intro {
         width: 100%;
         margin-top: 10px;
-        text-align: center;
     }
-
 
     .divider {
         margin: 15px 0;
@@ -1158,10 +1139,6 @@ a {
         font-size: 11px;
     }
 
-    .language-switch {
-        margin-left: auto;
-    }
-
     .content {
         padding: 0 20px;
     }
@@ -1176,17 +1153,9 @@ a {
         font-size: 26px;
     }
 
-    .hero-art {
-        display: none;
-    }
-
     .about-grid,
     .education-grid {
         grid-template-columns: 1fr;
-    }
-
-    .campus-placeholder {
-        grid-column: auto;
     }
 }
 
@@ -1207,14 +1176,6 @@ a {
         font-size: 19px;
     }
 
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card:last-child {
-        grid-column: auto;
-    }
-
     .project-body p {
         min-height: 0;
     }
@@ -1224,10 +1185,6 @@ a {
 
 
 /* ===== 顶部导航：主题切换与语言切换 ===== */
-
-.topbar {
-    flex-wrap: nowrap;
-}
 
 .topbar-actions {
     display: flex;
@@ -1296,4 +1253,10 @@ a {
         width: 30px;
         height: 30px;
     }
+}
+
+/* 图片类元素统一响应深色模式滤镜 */
+.hero-bg,
+.project-cover {
+    filter: var(--img-filter);
 }
