@@ -812,29 +812,27 @@ a {
 }
 
 /* 鼠标悬停时的变化 */
-.news-item:hover .news-date {
-    color: var(--primary-hover);
-    font-weight: 700;
-}
+@media (hover: hover) {
+    .news-item:hover .news-date {
+        color: var(--primary-hover);
+        font-weight: 700;
+    }
 
-.news-item:hover .news-date::before {
-    background: var(--primary-light);
-}
+    .news-item:hover .news-date::after {
+        border-color: var(--primary);
+        background: var(--primary);
+        transform: scale(1.2);
+    }
 
-.news-item:hover .news-date::after {
-    border-color: var(--primary);
-    background: var(--primary);
-    transform: scale(1.2);
-}
+    .news-item:hover .news-content {
+        background: var(--surface-hover);
+        transform: translateX(4px);
+    }
 
-.news-item:hover .news-content {
-    background: var(--surface-hover);
-    transform: translateX(4px);
-}
-
-.news-item:hover .news-content p {
-    color: var(--ink);
-    font-weight: 600;
+    .news-item:hover .news-content p {
+        color: var(--ink);
+        font-weight: 600;
+    }
 }
 
 /* 窄屏适配 */
