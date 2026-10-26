@@ -60,3 +60,35 @@ if ("IntersectionObserver" in window) {
 
   sections.forEach((section) => observer.observe(section));
 }
+
+
+
+/* ===== 深浅主题切换 ===== */
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const root = document.documentElement;
+
+function setTheme(theme) {
+    const isDark = theme === "dark";
+
+    root.dataset.theme = theme;
+
+    themeIcon.textContent = isDark ? "☀" : "☾";
+
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "切换浅色模式" : "切换深色模式"
+    );
+
+    localStorage.setItem("theme", theme);
+}
+
+/* 优先读取用户之前保存的主题 */
+const savedTheme = localStorage.getItem("theme");
+setTheme(savedTheme === "dark" ? "dark" : "light");
+
+themeToggle.addEventListener("click", () => {
+    const currentTheme = root.dataset.theme;
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+});

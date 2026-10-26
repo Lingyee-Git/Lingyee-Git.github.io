@@ -10,449 +10,961 @@
 </head>
 
 <body>
+
 <div class="layout">
 
+
+
     <!-- 左侧：固定个人信息栏 -->
+
     <aside class="sidebar">
-        <a class="logo" href="#home">Lingyee</span></a>
+
+        <a class="logo" href="#home">Lingyee</a>
+
+
 
         <div class="profile">
+
             <!-- 将 images/profile.jpg 替换成你自己的照片 -->
+
             <img class="avatar" src="images/profile.jpg" alt="个人照片"
+
                  onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+
             <div class="avatar-placeholder">添加个人照片</div>
+
+
 
             <h1 data-zh="袁心仪" data-en="Yuan Xinyi">袁心仪</h1>
 
+
+
             <p class="role"
+
                data-zh="预防转统计 · 数据分析与 AI 学习者"
+
                data-en="Statistics Master's Student">预防转统计 · 数据分析与 AI 学习者
+
             </p>
 
+
+
             <p class="intro"
+
                data-zh="努力学习数据分析、统计建模与人工智能的实际应用中"
+
                data-en="Data & AI Learner">努力学习数据分析、统计建模与人工智能的实际应用中
+
             </p>
+
         </div>
+
+
 
         <div class="divider"></div>
 
+
+
         <div class="info-list">
+
             <div class="info-item">
+
                 <span class="info-icon">⌂</span>
+
                 <div>
+
                     <strong data-zh="就读于" data-en="Education">就读于</strong>
+
                     <span data-zh="武汉大学 · 公共卫生学院"
+
                           data-en="School of Public Health, Wuhan University">
+
                         武汉大学 · 公共卫生学院
+
                     </span>
+
                 </div>
+
             </div>
 
+
+
             <div class="info-item">
+
                 <span class="info-icon">⌖</span>
+
                 <div>
+
                     <strong data-zh="所在地" data-en="Location">所在地</strong>
+
                     <span data-zh="中国湖北省武汉市" data-en="Wuhan, Hubei Province, China">中国湖北省武汉市</span>
+
                 </div>
+
             </div>
 
+
+
             <div class="info-item">
+
                 <span class="info-icon">✉</span>
+
                 <div>
+
                     <strong data-zh="电子邮箱" data-en="Email">电子邮箱</strong>
+
                     <a href="mailto:yuan.xinyi456@qq.com">
+
                       yuan.xinyi456@qq.com
+
                     </a>
+
                 </div>
+
             </div>
+
         </div>
+
+
 
         <div class="tags sidebar-tags">
+
             <span>Python</span>
+
             <span>SQL</span>
+
             <span data-zh="统计分析" data-en="Statistics">统计分析</span>
+
             <span data-zh="机器学习" data-en="Machine Learning">机器学习</span>
+
         </div>
+
+
 
         <div class="sidebar-links">
-            <a href="https://github.com/Lingyee-Git"
+
+            <a href="https\://github.com/Lingyee-Git"
+
                target="_blank" rel="noreferrer">⌘ GitHub</a>
+
             <a href="resume.pdf" target="_blank" rel="noreferrer"
+
                data-zh="查看简历 ↗" data-en="Résumé ↗">查看简历 ↗</a>
+
         </div>
 
+
+
         <footer class="sidebar-footer">
+
             © <span class="year"></span> Yuan Xinyi
+
         </footer>
+
     </aside>
 
 
+
+
+
+
+
     <!-- 右侧：导航栏与主要内容 -->
+
     <div class="main-column" id="home">
 
+
+
         <header class="topbar">
+
             <nav class="navigation">
+
                 <a href="#about" class="nav-link active"
+
                    data-zh="关于我" data-en="About">关于我</a>
+
                 <a href="#education" class="nav-link"
+
                    data-zh="教育背景" data-en="Education">教育背景</a>
+
                 <a href="#projects" class="nav-link"
+
                    data-zh="项目经历" data-en="Projects">项目经历</a>
+
                 <a href="#skills" class="nav-link"
+
                    data-zh="技能" data-en="Skills">技能</a>
+
                 <a href="#news" class="nav-link"
+
                    data-zh="动态" data-en="My News">动态</a>
+
             </nav>
 
-            <div class="language-switch">
-                <button class="lang-button selected" data-lang="zh"
-                        aria-pressed="true">中文</button>
-                <button class="lang-button" data-lang="en"
-                        aria-pressed="false">EN</button>
+
+
+            <div class="topbar-actions">
+
+                <button
+
+                    type="button"
+
+                    id="theme-toggle"
+
+                    class="theme-toggle"
+
+                    aria-label="切换深色模式"
+
+                    aria-pressed="false"
+
+                    title="切换深色模式">
+
+                    <span id="theme-icon" aria-hidden="true">☾</span>
+
+                </button>
+
+
+
+                <div class="language-switch">
+
+                    <button class="lang-button selected" data-lang="zh"
+
+                            aria-pressed="true">中文</button>
+
+                    <button class="lang-button" data-lang="en"
+
+                            aria-pressed="false">EN</button>
+
+                </div>
+
             </div>
+
         </header>
+
 
 
         <main class="content">
 
+
+
             <!-- 欢迎区域 -->
 
-<div class="hero">
-    <div class="hero-bg"></div>
 
-    <div class="hero-content">
-        <p class="eyebrow"
+
+            <div class="hero">
+
+            <div class="hero-bg"></div>
+
+
+
+            <div class="hero-content">
+
+            <p class="eyebrow"
+
            data-zh="个人主页 · 作品集"
+
            data-en="PERSONAL WEBSITE · PORTFOLIO">
+
             个人主页 · 作品集
-        </p>
 
-        <h2 data-zh="敢谒当世贤者!"
-            data-en="Welcome!">
-            敢谒当世贤者!
-        </h2>
-
-        <p data-zh="当世的君子们你们好呀！"
-           data-en="Hello World!">
-            当世的君子们你们好呀！
-        </p>
-    </div>
-</div>
-            </section>
+            </p>
 
 
-            <!-- 关于我 -->
-            <section class="section" id="about">
-                <div class="section-heading">
-                    <span class="heading-mark"></span>
-                    <div>
-                        <h2 data-zh="关于我" data-en="About Me">关于我</h2>
-                        <p data-zh="简单介绍" data-en="A little introduction">简单介绍</p>
-                    </div>
+
+                 <h2 data-zh="敢谒当世贤者!"
+
+                data-en="Welcome!">
+
+                 敢谒当世贤者!
+
+                </h2>
+
+
+
+                <p data-zh="当世的君子们你们好呀！"
+
+                data-en="Hello World!">
+
+                当世的君子们你们好呀！
+
+                </p>
+
+             </div>
+
                 </div>
+
+
+
+
+
+                <!-- 关于我 -->
+
+             <section class="section" id="about">
+
+                <div class="section-heading">
+
+                    <span class="heading-mark"></span>
+
+                    <div>
+
+                        <h2 data-zh="关于我" data-en="About Me">关于我</h2>
+
+                        <p data-zh="简单介绍" data-en="A little introduction">简单介绍</p>
+
+                    </div>
+
+                </div>
+
+
 
                 <div class="about-grid">
+
                     <div class="about-text">
+
                         <p data-zh="我是谁？我也在寻找……"
+
                            data-en="Who am I ?">我是谁？我也在寻找……
+
                         </p>
+
+
 
                         <p data-zh=""
+
                            data-en="">
+
                         </p>
+
                     </div>
 
+
+
                     <div class="interest-card">
+
                         <h3 data-zh="关注方向" data-en="Areas of Interest">关注方向</h3>
+
                         <div class="tags">
+
                             <span>Python</span>
+
                             <span>SQL</span>
+
                             <span data-zh="数据分析" data-en="Data Analysis">数据分析</span>
+
                             <span data-zh="统计建模" data-en="Statistical Modeling">统计建模</span>
+
                             <span data-zh="机器学习" data-en="Machine Learning">机器学习</span>
+
                             <span data-zh="数据可视化" data-en="Data Visualization">数据可视化</span>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
+
+
 
 
             <!-- 教育背景 -->
+
 <section class="section" id="education">
+
     <div class="section-heading">
+
         <span class="heading-mark"></span>
+
         <div>
+
             <h2 data-zh="教育背景" data-en="Education">教育背景</h2>
+
             <p data-zh="学习经历" data-en="Academic background">学习经历</p>
+
         </div>
+
     </div>
+
+
 
     <div class="education-grid">
+
         <article class="education-item">
+
             <img class="school-logo"
+
                  src="images/csu-logo.jpg"
+
                  alt="中南大学校徽">
 
+
+
             <div>
+
                 <h3 data-zh="中南大学"
+
                     data-en="Central South University">中南大学</h3>
+
                 <p data-zh="统计学 · 硕士研究生（拟录取）"
+
                    data-en="Statistics · Incoming Master's Student">
+
                     统计学 · 硕士研究生（拟录取）
+
                 </p>
+
                 <small>2027 — 2030</small>
+
             </div>
+
         </article>
+
+
 
         <article class="education-item">
+
             <img class="school-logo"
+
                  src="images/whu-logo.png"
+
                  alt="武汉大学校徽">
 
+
+
             <div>
+
                 <h3 data-zh="武汉大学"
+
                     data-en="Wuhan University">武汉大学</h3>
+
                 <p data-zh="预防医学 · 本科"
+
                    data-en="Preventive Medicine · Bachelor's Degree">预防医学 · 本科
+
                 </p>
+
                 <small>2022 — 2026</small>
+
             </div>
+
         </article>
+
     </div>
+
 </section>
+
+
+
 
 
 <section class="section" id="projects">
+
     <div class="section-heading">
+
         <span class="heading-mark"></span>
+
         <div>
+
             <h2 data-zh="项目经历" data-en="Projects">项目经历</h2>
+
             <p data-zh="项目与实践" data-en="Projects & Experience">项目与实践</p>
+
         </div>
+
     </div>
+
+
 
     <article class="project-card">
 
+
+
         <!-- 图片区域：替换为自己的图片路径 -->
+
         <div class="project-cover"
+
              style="background-image: url('images/project-python.jpg');">
+
         </div>
+
+
 
         <!-- 项目信息 -->
+
         <div class="project-body">
 
+
+
             <h3 data-zh="Python 学习记录"
+
                 data-en="Python Learning Records">Python 学习记录</h3>
 
+
+
             <p class="project-date">
+
                 <time datetime="2026-10"
+
                       data-zh="始于 2026.10"
+
                       data-en="Starting in Oct. 2026">始于 2026.10</time>
+
             </p>
+
+
 
             <div class="tags">
+
                 <span>Markdown</span>
+
                 <span>Obsidian</span>
+
             </div>
 
+
+
             <p data-zh="这里主要记录了我学习 Python 的一些记录，包括课件、练习（还没练）等"
+
                data-en="This mainly records some of my experiences in learning Python, including course materials, exercises (not yet practiced), and so on.">
+
                 这里主要记录了我学习 Python 的一些记录，包括课件、练习（还没练）等
+
             </p>
 
+
+
             <a class="project-link"
-               href="https://github.com/Lingyee-Git/Python-learning-note"
+
+               href="https\://github.com/Lingyee-Git/Python-learning-note"
+
                target="_blank"
+
                rel="noopener noreferrer"
+
                data-zh="查看项目 ↗"
+
                data-en="View Project ↗">查看项目 ↗</a>
 
+
+
         </div>
-        
+
+
+
     </article>
+
+
 
         <article class="project-card">
 
+
+
         <!-- 图片区域：替换为自己的图片路径 -->
+
         <div class="project-cover"
+
              style="background-image: url('images/project-MySQL.jpg');">
+
         </div>
+
+
 
         <!-- 项目信息 -->
+
         <div class="project-body">
 
+
+
             <h3 data-zh="MySQL 学习记录"
+
                 data-en="MySQL Learning Records"></h3>
 
+
+
             <p class="project-date">
+
                 <time datetime="2026-10"
+
                       data-zh="始于 2026.??"
+
                       data-en="Starting in ?? 2026"></time>
+
             </p>
+
+
 
             <div class="tags">
+
                 <span>SQL</span>
+
             </div>
 
+
+
             <p data-zh="这里主要记录了我学习 MySQL 的一些记录，但是还没开始，敬请期待"
+
                data-en="Waiting for an Update">这里主要记录了我学习 MySQL 的一些记录，但是还没开始，敬请期待
+
             </p>
 
+
+
             <a class="project-link"
-               href="https://github.com/Lingyee-Git/MySQL-learning-note"
+
+               href="https\://github.com/Lingyee-Git/MySQL-learning-note"
+
                target="_blank"
+
                rel="noopener noreferrer"
+
                data-zh="查看项目 ↗"
+
                data-en="View Project ↗">查看项目 ↗</a>
 
+
+
         </div>
-        
+
+
+
     </article>
+
 </section>
+
+
+
 
 
 <!-- 技能 -->
+
 <section class="section" id="skills">
+
     <div class="section-heading">
+
         <span class="heading-mark"></span>
+
         <div>
+
             <h2 data-zh="技能" data-en="Skills">技能</h2>
+
             <p data-zh="工具与技术" data-en="Tools & Technologies">工具与技术</p>
+
         </div>
+
     </div>
+
+
 
     <div class="skill-list">
+
         <span class="skill-pill">
+
             <b>Python</b>
+
             <span data-zh="基础编程与数据处理"
+
                   data-en="Basic Programming & Data Processing">
+
                 基础编程与数据处理
+
             </span>
+
         </span>
 
+
+
         <span class="skill-pill">
+
             <b>SQL</b>
+
             <span data-zh="数据查询与处理"
+
                   data-en="Data Query & Processing">
+
                 数据查询与处理
+
             </span>
+
         </span>
 
+
+
         <span class="skill-pill">
+
             <b>R</b>
+
             <span data-zh="统计分析"
+
                   data-en="Statistical Analysis">
+
                 统计分析
+
             </span>
+
         </span>
 
+
+
         <span class="skill-pill">
+
             <b>SAS</b>
+
             <span data-zh="数据分析"
+
                   data-en="Data Analysis">
+
                 数据分析
+
             </span>
+
         </span>
 
+
+
         <span class="skill-pill">
+
             <b>SPSS</b>
+
             <span data-zh="统计分析"
+
                   data-en="Statistical Analysis">
+
                 统计分析
+
             </span>
+
         </span>
+
     </div>
+
 </section>
 
 
- 
+
+
+
+
+
 <!-- 动态 -->
+
 <section class="section" id="news">
+
     <div class="section-heading">
+
         <span class="heading-mark"></span>
+
         <div>
+
             <h2 data-zh="动态" data-en="My News">动态</h2>
+
             <p data-zh="记录学习与成长"
+
                data-en="Updates & Milestones">记录学习与成长</p>
+
         </div>
+
     </div>
+
+
 
     <div class="news-timeline">
 
+
+
         <!-- 动态 1 -->
+
         <article class="news-item">
+
             <time class="news-date" datetime="2026-10-25">
+
                 <span>2026.10.25</span>
+
             </time>
+
             <div class="news-content">
+
                 <p data-zh="开始搭建个人主页，记录自己的学习进展与项目经历。"
+
                    data-en="Started building my personal website to document my learning journey and projects.">
+
                     开始搭建个人主页，记录自己的学习进展与项目经历。
+
                 </p>
+
             </div>
+
         </article>
 
+
+
     </div>
+
 </section>
 
 
+
+
+
+</main>
+</div>
+</div>
+
 <script>
+
     // 中英文切换
+
     const languageButtons = document.querySelectorAll(".lang-button");
 
+
+
     function setLanguage(language) {
+
         document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
 
+
+
         document.querySelectorAll("[data-zh][data-en]").forEach(element => {
+
             element.innerHTML = element.dataset[language];
+
         });
+
+
 
         languageButtons.forEach(button => {
+
             const selected = button.dataset.lang === language;
+
             button.classList.toggle("selected", selected);
+
             button.setAttribute("aria-pressed", selected);
+
         });
 
+
+
         document.title = language === "zh"
+
             ? "袁心仪 | 个人主页"
+
             : "Yuan Xinyi | Personal Website";
 
+
+
         try {
+
             sessionStorage.setItem("portfolio-language", language);
+
+        } catch (_) {}
+
+    }
+
+
+
+    languageButtons.forEach(button => {
+
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+
+    });
+
+
+
+    try {
+
+        const savedLanguage = sessionStorage.getItem("portfolio-language");
+
+        if (savedLanguage === "en" || savedLanguage === "zh") {
+
+            setLanguage(savedLanguage);
+
+        }
+
+    } catch (_) {}
+
+
+
+    // 滚动时高亮对应导航项
+
+    const sections = document.querySelectorAll(".content .section");
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) return;
+
+                navLinks.forEach(link => {
+
+                    link.classList.toggle(
+
+                        "active",
+
+                        link.getAttribute("href") === "#" + entry.target.id
+
+                    );
+
+                });
+
+            });
+
+        }, { rootMargin: "-20% 0px -65% 0px" });
+
+
+
+        sections.forEach(section => observer.observe(section));
+
+    }
+
+
+    /* ===== 深浅主题切换 ===== */
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const root = document.documentElement;
+
+    function setTheme(theme) {
+        const isDark = theme === "dark";
+        root.dataset.theme = isDark ? "dark" : "light";
+        themeIcon.textContent = isDark ? "☀" : "☾";
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "切换浅色模式" : "切换深色模式"
+        );
+        themeToggle.setAttribute(
+            "title",
+            isDark ? "切换浅色模式" : "切换深色模式"
+        );
+
+        try {
+            localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
         } catch (_) {}
     }
 
-    languageButtons.forEach(button => {
-        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    themeToggle.addEventListener("click", () => {
+        setTheme(root.dataset.theme === "dark" ? "light" : "dark");
     });
 
     try {
-        const savedLanguage = sessionStorage.getItem("portfolio-language");
-        if (savedLanguage === "en" || savedLanguage === "zh") {
-            setLanguage(savedLanguage);
-        }
-    } catch (_) {}
-
-    // 滚动时高亮对应导航项
-    const sections = document.querySelectorAll(".content .section");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                navLinks.forEach(link => {
-                    link.classList.toggle(
-                        "active",
-                        link.getAttribute("href") === "#" + entry.target.id
-                    );
-                });
-            });
-        }, { rootMargin: "-20% 0px -65% 0px" });
-
-        sections.forEach(section => observer.observe(section));
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        setTheme(savedTheme === "dark" ? "dark" : "light");
+    } catch (_) {
+        setTheme("light");
     }
+
+    /* ===== 自动更新页脚年份 ===== */
+    document.querySelectorAll(".year").forEach(element => {
+        element.textContent = new Date().getFullYear();
+    });
+
 </script>
+
 </body>
 </html>
