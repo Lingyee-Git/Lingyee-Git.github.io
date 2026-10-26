@@ -701,31 +701,121 @@ a {
     font-size: 12px;
 }
 
-.contact-card {
-    padding: 22px;
-    border-radius: var(--radius);
-    background: #f4f8fc;
+
+/* ===== 动态时间轴 ===== */
+.news-timeline {
+    position: relative;
+    padding: 4px 0;
 }
 
-.contact-card p {
-    margin: 0 0 14px;
+/* 每一条动态 */
+.news-item {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 22px;
+    position: relative;
+    padding-bottom: 26px;
+}
+
+/* 左侧时间 */
+.news-date {
+    position: relative;
+    display: block;
+    padding: 3px 0 0 18px;
+    color: #8a9aaf;
+    font-size: 11px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+/* 连接各条动态的竖线 */
+.news-date::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -27px;
+    left: 3px;
+    width: 1px;
+    background: #dce6f0;
+    transition: background 0.25s ease;
+}
+
+/* 时间轴上的圆点 */
+.news-date::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border: 2px solid #9bb7d4;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.25s ease;
+}
+
+/* 最后一条动态不再延伸竖线 */
+.news-item:last-child .news-date::before {
+    display: none;
+}
+
+/* 右侧内容 */
+.news-content {
+    min-width: 0;
+    padding: 0 12px 12px;
+    border-radius: 8px;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.news-content p {
+    margin: 0;
     color: #65778d;
     font-size: 12px;
+    line-height: 1.9;
+    transition:
+        color 0.25s ease,
+        font-weight 0.25s ease;
 }
 
-.contact-card a {
-    display: inline-block;
-    margin: 0 7px 5px 0;
-    padding: 7px 11px;
-    border: 1px solid #dce6f0;
-    border-radius: 999px;
-    color: #42678e;
-    background: white;
-    font-size: 11px;
+/* 鼠标悬停时的变化 */
+.news-item:hover .news-date {
+    color: var(--blue);
+    font-weight: 700;
 }
 
-.contact-section {
-    border-bottom: 0;
+.news-item:hover .news-date::before {
+    background: #8eafd2;
+}
+
+.news-item:hover .news-date::after {
+    border-color: var(--blue);
+    background: var(--blue);
+    transform: scale(1.2);
+}
+
+.news-item:hover .news-content {
+    background: #f4f8fc;
+    transform: translateX(4px);
+}
+
+.news-item:hover .news-content p {
+    color: #304f72;
+    font-weight: 600;
+}
+
+/* 窄屏适配 */
+@media (max-width: 600px) {
+    .news-item {
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .news-content {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
 }
 
 .main-footer {

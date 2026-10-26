@@ -39,7 +39,8 @@ try {
   // Keep the default Chinese version.
 }
 
-// Highlight the navigation item for the section currently in view.
+
+ // Highlight the navigation item for the section currently in view.
 const sections = document.querySelectorAll("main section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -47,8 +48,12 @@ if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
+
       navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${entry.target.id}`
+        );
       });
     });
   }, { rootMargin: "-25% 0px -65% 0px" });

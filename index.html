@@ -101,8 +101,8 @@
                    data-zh="项目经历" data-en="Projects">项目经历</a>
                 <a href="#skills" class="nav-link"
                    data-zh="技能" data-en="Skills">技能</a>
-                <a href="#contact" class="nav-link"
-                   data-zh="联系方式" data-en="Contact">联系方式</a>
+                <a href="#news" class="nav-link"
+                   data-zh="动态" data-en="My News">动态</a>
             </nav>
 
             <div class="language-switch">
@@ -311,6 +311,7 @@
     </article>
 </section>
 
+
 <!-- 技能 -->
 <section class="section" id="skills">
     <div class="section-heading">
@@ -322,43 +323,79 @@
     </div>
 
     <div class="skill-list">
-        <span class="skill-pill"><b>Python</b> 数据处理与基础编程</span>
-        <span class="skill-pill"><b>SQL</b> 数据查询与处理</span>
-        <span class="skill-pill"><b>R</b> 统计分析</span>
-        <span class="skill-pill"><b>SAS</b> 数据分析</span>
-        <span class="skill-pill"><b>SPSS</b> 统计分析</span>
+        <span class="skill-pill">
+            <b>Python</b>
+            <span data-zh="基础编程与数据处理"
+                  data-en="Basic Programming & Data Processing">
+                基础编程与数据处理
+            </span>
+        </span>
+
+        <span class="skill-pill">
+            <b>SQL</b>
+            <span data-zh="数据查询与处理"
+                  data-en="Data Query & Processing">
+                数据查询与处理
+            </span>
+        </span>
+
+        <span class="skill-pill">
+            <b>R</b>
+            <span data-zh="统计分析"
+                  data-en="Statistical Analysis">
+                统计分析
+            </span>
+        </span>
+
+        <span class="skill-pill">
+            <b>SAS</b>
+            <span data-zh="数据分析"
+                  data-en="Data Analysis">
+                数据分析
+            </span>
+        </span>
+
+        <span class="skill-pill">
+            <b>SPSS</b>
+            <span data-zh="统计分析"
+                  data-en="Statistical Analysis">
+                统计分析
+            </span>
+        </span>
     </div>
 </section>
 
-            <!-- 联系方式 -->
-            <section class="section" id="contact">
-                <div class="section-heading">
-                    <span class="heading-mark"></span>
-                    <div>
-                        <h2 data-zh="联系方式" data-en="Contact">联系方式</h2>
-                        <p data-zh="欢迎交流" data-en="Let's connect">欢迎交流</p>
-                    </div>
-                </div>
 
-                <div class="contact-card">
-                    <p data-zh="如果你对我的项目或学习方向感兴趣，欢迎联系我。"
-                       data-en="If you're interested in my projects or learning journey, feel free to get in touch.">
-                        如果你对我的项目或学习方向感兴趣，欢迎联系我。
-                    </p>
-                    <a href="mailto:yuan.xinyi456@qq.com">✉ Email</a>
-                    <a href="https://github.com/Lingyee-Git"
-                       target="_blank" rel="noreferrer">⌘ GitHub</a>
-                </div>
-            </section>
-
-            <footer class="main-footer">
-                <span>© <span class="year"></span> Yuan Xinyi</span>
-                <a href="#home" data-zh="返回顶部 ↑" data-en="Back to top ↑">返回顶部 ↑</a>
-            </footer>
-
-        </main>
+ 
+<!-- 动态 -->
+<section class="section" id="news">
+    <div class="section-heading">
+        <span class="heading-mark"></span>
+        <div>
+            <h2 data-zh="动态" data-en="My News">动态</h2>
+            <p data-zh="记录学习与成长"
+               data-en="Updates & Milestones">记录学习与成长</p>
+        </div>
     </div>
-</div>
+
+    <div class="news-timeline">
+
+        <!-- 动态 1 -->
+        <article class="news-item">
+            <time class="news-date" datetime="2026-10-25">
+                <span>2026.10.25</span>
+            </time>
+            <div class="news-content">
+                <p data-zh="开始搭建个人主页，记录自己的学习进展与项目经历。"
+                   data-en="Started building my personal website to document my learning journey and projects.">
+                    开始搭建个人主页，记录自己的学习进展与项目经历。
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
 
 <script>
     // 中英文切换
@@ -389,10 +426,6 @@
     languageButtons.forEach(button => {
         button.addEventListener("click", () => setLanguage(button.dataset.lang));
     });
-
-    document.querySelectorAll("[data-zh][data-en]").forEach(element => {
-    element.textContent = element.dataset[language];
-});
 
     try {
         const savedLanguage = sessionStorage.getItem("portfolio-language");
