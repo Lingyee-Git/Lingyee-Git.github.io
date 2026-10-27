@@ -25,7 +25,7 @@
 
             <div class="profile">
                 <img class="avatar" src="images/profile.jpg" alt="袁心仪的个人照片"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
                 <div class="avatar-placeholder">添加个人照片</div>
 
                 <h1 data-zh="袁心仪" data-en="Yuan Xinyi">袁心仪</h1>
@@ -35,62 +35,89 @@
                    data-en="Statistics Master's Student">
                     预防转统计 · 数据分析与 AI 学习者
                 </p>
-
-                <p class="intro"
-                   data-zh="努力学习数据分析、统计建模与人工智能的实际应用中"
-                   data-en="Data & AI Learner">
-                    努力学习数据分析、统计建模与人工智能的实际应用中
-                </p>
             </div>
 
             <div class="divider"></div>
 
             <div class="info-list">
+                <!-- 教育 -->
                 <div class="info-item">
-                    <span class="info-icon" aria-hidden="true">⌂</span>
+                    <span class="info-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </span>
                     <div>
                         <strong data-zh="就读于" data-en="Education">就读于</strong>
-                        <span data-zh="武汉大学 · 公共卫生学院"
-                              data-en="School of Public Health, Wuhan University">
-                            武汉大学 · 公共卫生学院
-                        </span>
+                        <span data-zh="武汉大学 · 公共卫生学院" data-en="School of Public Health, Wuhan University">武汉大学 · 公共卫生学院</span>
                     </div>
                 </div>
 
+                <!-- 所在地 -->
                 <div class="info-item">
-                    <span class="info-icon" aria-hidden="true">⌖</span>
+                    <span class="info-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </span>
                     <div>
                         <strong data-zh="所在地" data-en="Location">所在地</strong>
-                        <span data-zh="中国湖北省武汉市"
-                              data-en="Wuhan, Hubei Province, China">
-                            中国湖北省武汉市
-                        </span>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <span class="info-icon" aria-hidden="true">✉</span>
-                    <div>
-                        <strong data-zh="电子邮箱" data-en="Email">电子邮箱</strong>
-                        <a href="mailto:yuan.xinyi456@qq.com">
-                            yuan.xinyi456@qq.com
-                        </a>
+                        <span data-zh="湖北省武汉市" data-en="Wuhan, China">湖北省武汉市</span>
                     </div>
                 </div>
             </div>
 
-            <div class="tags sidebar-tags">
-                <span>Python</span>
-                <span>SQL</span>
-                <span data-zh="统计分析" data-en="Statistics">统计分析</span>
-                <span data-zh="机器学习" data-en="Machine Learning">机器学习</span>
-            </div>
-
+            <!-- 图标链接 -->
             <div class="sidebar-links">
-                <a href="https://github.com/Lingyee-Git"
-                   target="_blank" rel="noopener noreferrer">⌘ GitHub</a>
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
-                   data-zh="查看简历 ↗" data-en="Résumé ↗">查看简历 ↗</a>
+                <!-- GitHub -->
+                <a href="https://github.com/Lingyee-Git" target="_blank" rel="noopener noreferrer" class="icon-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span class="tooltip" data-zh="GitHub" data-en="GitHub">GitHub</span>
+                </a>
+
+                <!-- 邮箱 -->
+                <a href="mailto:yuan.xinyi456@qq.com" class="icon-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    </svg>
+                    <span class="tooltip" data-zh="邮箱" data-en="Email">邮箱</span>
+                </a>
+
+                <!-- 简历 -->
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="icon-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                        <path d="M16 22a4 4 0 0 0-8 0"/>
+                        <circle cx="12" cy="15" r="3"/>
+                    </svg>
+                    <span class="tooltip" data-zh="简历" data-en="Resume">简历</span>
+                </a>
+
+                <!-- 预留：学术主页 -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="icon-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
+                        <path d="M22 10v6"/>
+                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                    </svg>
+                    <span class="tooltip" data-zh="学术主页" data-en="Google Scholar">学术主页</span>
+                </a>
+
+                <!-- 预留：职业社交 -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="icon-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <span class="tooltip" data-zh="领英" data-en="LinkedIn">领英</span>
+                </a>
             </div>
 
             <footer class="sidebar-footer">
@@ -122,7 +149,40 @@
                             aria-label="切换深色模式"
                             aria-pressed="false"
                             title="切换深色模式">
-                        <span id="theme-icon" aria-hidden="true">☾</span>
+
+                        <!-- 月亮：浅色模式显示 -->
+                        <svg class="icon-moon"
+                             width="18" height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+                            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+                        </svg>
+
+                        <!-- 太阳：深色模式显示 -->
+                        <svg class="icon-sun"
+                             width="18" height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="1.5"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2"/>
+                            <path d="M12 20v2"/>
+                            <path d="m4.93 4.93 1.41 1.41"/>
+                            <path d="m17.66 17.66 1.41 1.41"/>
+                            <path d="M2 12h2"/>
+                            <path d="M20 12h2"/>
+                            <path d="m6.34 17.66-1.41 1.41"/>
+                            <path d="m19.07 4.93-1.41 1.41"/>
+                        </svg>
                     </button>
 
                     <div class="language-switch" role="group" aria-label="语言切换">
@@ -141,12 +201,6 @@
                     <div class="hero-bg" aria-hidden="true"></div>
 
                     <div class="hero-content">
-                        <p class="eyebrow"
-                           data-zh="个人主页 · 作品集"
-                           data-en="PERSONAL WEBSITE · PORTFOLIO">
-                            个人主页 · 作品集
-                        </p>
-
                         <h2 data-zh="敢谒当世贤者!"
                             data-en="Welcome!">
                             敢谒当世贤者!
@@ -163,29 +217,23 @@
                 <section class="section" id="about">
                     <div class="section-heading">
                         <span class="heading-mark" aria-hidden="true"></span>
-                        <div>
-                            <h2 data-zh="关于我" data-en="About Me">关于我</h2>
-                            <p data-zh="简单介绍" data-en="A little introduction">简单介绍</p>
-                        </div>
+                        <h2 data-zh="关于我" data-en="About Me">关于我</h2>
                     </div>
 
                     <div class="about-grid">
                         <div class="about-text">
-                            <p data-zh="我是谁？我也在寻找……"
-                               data-en="Who am I ?">
-                                我是谁？我也在寻找……
+                            <p data-zh="本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。"
+                               data-en="I completed my undergraduate studies in Preventive Medicine at Wuhan University. During this process, I discovered an interest in data analysis and the application of statistical knowledge, and I have been self-studying relevant statistical knowledge and software skills. I have now been admitted to the Master's program in Statistics at Central South University, where I continue to study cutting-edge knowledge and applied techniques in the field.">
+                                本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。
                             </p>
                         </div>
 
                         <div class="interest-card">
                             <h3 data-zh="关注方向" data-en="Areas of Interest">关注方向</h3>
                             <div class="tags">
-                                <span>Python</span>
-                                <span>SQL</span>
-                                <span data-zh="数据分析" data-en="Data Analysis">数据分析</span>
-                                <span data-zh="统计建模" data-en="Statistical Modeling">统计建模</span>
-                                <span data-zh="机器学习" data-en="Machine Learning">机器学习</span>
-                                <span data-zh="数据可视化" data-en="Data Visualization">数据可视化</span>
+                                <span class="tag-data" data-zh="数据分析" data-en="Data Analysis">数据分析</span>
+                                <span class="tag-stat" data-zh="统计建模" data-en="Statistical Modeling">统计建模</span>
+                                <span class="tag-ml" data-zh="机器学习" data-en="Machine Learning">机器学习</span>
                             </div>
                         </div>
                     </div>
@@ -195,10 +243,7 @@
                 <section class="section" id="education">
                     <div class="section-heading">
                         <span class="heading-mark" aria-hidden="true"></span>
-                        <div>
-                            <h2 data-zh="教育背景" data-en="Education">教育背景</h2>
-                            <p data-zh="学习经历" data-en="Academic background">学习经历</p>
-                        </div>
+                        <h2 data-zh="教育背景" data-en="Education">教育背景</h2>
                     </div>
 
                     <div class="education-grid">
@@ -207,12 +252,11 @@
                                  src="images/csu-logo.jpg"
                                  alt="中南大学校徽"
                                  loading="lazy">
-
                             <div>
-                                <h3 data-zh="中南大学"
-                                    data-en="Central South University">中南大学</h3>
+                                <h3 data-zh="中南大学·数学与统计学院"
+                                    data-en="School of Mathematics and Statistics, Central South University">中南大学·数学与统计学院</h3>
                                 <p data-zh="统计学 · 硕士研究生（拟录取）"
-                                   data-en="Statistics · Incoming Master's Student">
+                                   data-en="Statistics · Master's Student (Incoming)">
                                     统计学 · 硕士研究生（拟录取）
                                 </p>
                                 <small>2027 — 2030</small>
@@ -224,10 +268,9 @@
                                  src="images/whu-logo.png"
                                  alt="武汉大学校徽"
                                  loading="lazy">
-
                             <div>
-                                <h3 data-zh="武汉大学"
-                                    data-en="Wuhan University">武汉大学</h3>
+                                <h3 data-zh="武汉大学·公共卫生学院"
+                                    data-en="School of Public Health, Wuhan University">武汉大学·公共卫生学院</h3>
                                 <p data-zh="预防医学 · 本科"
                                    data-en="Preventive Medicine · Bachelor's Degree">
                                     预防医学 · 本科
@@ -242,11 +285,7 @@
                 <section class="section" id="news">
                     <div class="section-heading">
                         <span class="heading-mark" aria-hidden="true"></span>
-                        <div>
-                            <h2 data-zh="动态" data-en="My News">动态</h2>
-                            <p data-zh="记录学习与成长"
-                               data-en="Updates & Milestones">记录学习与成长</p>
-                        </div>
+                        <h2 data-zh="动态" data-en="My News">动态</h2>
                     </div>
 
                     <div class="news-timeline">
@@ -261,54 +300,6 @@
                                 </p>
                             </div>
                         </article>
-
-                        <article class="news-item">
-                            <time class="news-date" datetime="2026-10-26">
-                                <span>2026.10.26</span>
-                            </time>
-                            <div class="news-content">
-                                <p data-zh="测试一下时间轴" data-en="Test">测试一下时间轴</p>
-                            </div>
-                        </article>
-
-                        <article class="news-item">
-                            <time class="news-date" datetime="2025-10-26">
-                                <span>2025.10.26</span>
-                            </time>
-                            <div class="news-content">
-                                <p data-zh="测试一下时间轴" data-en="Test">测试一下时间轴</p>
-                            </div>
-                        </article>
-
-                        <article class="news-item">
-                            <time class="news-date" datetime="2025-12-26">
-                                <span>2025.12.26</span>
-                            </time>
-                            <div class="news-content">
-                                <p data-zh="测试一下时间轴" data-en="Test">测试一下时间轴</p>
-                            </div>
-                        </article>
-
-                        <article class="news-item">
-                            <time class="news-date" datetime="2026-10-25">
-                                <span>2026.10.25</span>
-                            </time>
-                            <div class="news-content">
-                                <p data-zh="测试一下时间轴" data-en="Test">测试一下时间轴</p>
-                            </div>
-                        </article>
-
-                        <article class="news-item">
-                            <time class="news-date" datetime="2024-10-25">
-                                <span>2024.10.25</span>
-                            </time>
-                            <div class="news-content">
-                                <p data-zh="测试"
-                                   data-en="Test">
-                                    测试
-                                </p>
-                            </div>
-                        </article>
                     </div>
                 </section>
 
@@ -316,10 +307,7 @@
                 <section class="section" id="projects">
                     <div class="section-heading">
                         <span class="heading-mark" aria-hidden="true"></span>
-                        <div>
-                            <h2 data-zh="项目经历" data-en="Projects">项目经历</h2>
-                            <p data-zh="项目与实践" data-en="Projects & Experience">项目与实践</p>
-                        </div>
+                        <h2 data-zh="项目经历" data-en="Projects">项目经历</h2>
                     </div>
 
                     <article class="project-card">
@@ -330,20 +318,21 @@
                             <h3 data-zh="Python 学习记录"
                                 data-en="Python Learning Records">Python 学习记录</h3>
 
-                            <p class="project-date">
-                                <time datetime="2026-10"
-                                      data-zh="始于 2026.10"
-                                      data-en="Starting in Oct. 2026">始于 2026.10</time>
-                            </p>
-
-                            <div class="tags">
-                                <span>Markdown</span>
-                                <span>Obsidian</span>
+                            <div class="project-meta">
+                                <span class="project-date">
+                                    <time datetime="2026-10"
+                                          data-zh="始于 2026.10"
+                                          data-en="Starting in Oct. 2026">始于 2026.10</time>
+                                </span>
+                                <div class="tags">
+                                    <span>Markdown</span>
+                                    <span>Obsidian</span>
+                                </div>
                             </div>
 
-                            <p data-zh="这里主要记录了我学习 Python 的一些记录，包括课件、练习（还没练）等"
-                               data-en="This mainly records some of my experiences in learning Python, including course materials, exercises (not yet practiced), and so on.">
-                                这里主要记录了我学习 Python 的一些记录，包括课件、练习（还没练）等
+                            <p data-zh="这里主要记录了我学习 Python 的一些记录，包括课件、练习等"
+                               data-en="This mainly records some of my experiences in learning Python, including course materials, exercises, and so on.">
+                                这里主要记录了我学习 Python 的一些记录，包括课件、练习等
                             </p>
 
                             <a class="project-link"
@@ -363,18 +352,19 @@
                             <h3 data-zh="MySQL 学习记录"
                                 data-en="MySQL Learning Records">MySQL 学习记录</h3>
 
-                            <p class="project-date">
-                                <time data-zh="时间待定"
-                                      data-en="Date TBD">时间待定</time>
-                            </p>
-
-                            <div class="tags">
-                                <span>SQL</span>
+                            <div class="project-meta">
+                                <span class="project-date">
+                                    <time data-zh="时间待定"
+                                          data-en="Date TBD">时间待定</time>
+                                </span>
+                                <div class="tags">
+                                    <span>SQL</span>
+                                </div>
                             </div>
 
-                            <p data-zh="这里主要记录了我学习 MySQL 的一些记录，但是还没开始，敬请期待"
+                            <p data-zh="这里主要记录了我学习 MySQL 的一些记录"
                                data-en="Waiting for an Update">
-                                这里主要记录了我学习 MySQL 的一些记录，但是还没开始，敬请期待
+                                这里主要记录了我学习 MySQL 的一些记录
                             </p>
 
                             <a class="project-link"
@@ -391,10 +381,7 @@
                 <section class="section" id="skills">
                     <div class="section-heading">
                         <span class="heading-mark" aria-hidden="true"></span>
-                        <div>
-                            <h2 data-zh="技能" data-en="Skills">技能</h2>
-                            <p data-zh="工具与技术" data-en="Tools & Technologies">工具与技术</p>
-                        </div>
+                        <h2 data-zh="技能" data-en="Skills">技能</h2>
                     </div>
 
                     <div class="skill-list">
@@ -444,7 +431,6 @@
         </div>
     </div>
 
-    <!-- 唯一脚本：放在 body 末尾，DOM 已就绪；defer 让以后把脚本移到 head 也不会出问题 -->
     <script src="script.js" defer></script>
 </body>
 </html>

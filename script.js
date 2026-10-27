@@ -4,7 +4,6 @@
     /* ===== DOM 引用 ===== */
     const root = document.documentElement;
     const themeToggle = document.getElementById("theme-toggle");
-    const themeIcon = document.getElementById("theme-icon");
     const languageButtons = document.querySelectorAll(".lang-button");
 
     /* ===== 主题按钮提示文字 ===== */
@@ -26,10 +25,6 @@
     function setTheme(theme) {
         const isDark = theme === "dark";
         root.dataset.theme = isDark ? "dark" : "light";
-
-        if (themeIcon) {
-            themeIcon.textContent = isDark ? "☀" : "☾";
-        }
 
         if (themeToggle) {
             themeToggle.setAttribute("aria-pressed", String(isDark));
