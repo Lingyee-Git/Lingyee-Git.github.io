@@ -76,11 +76,12 @@ html {
     scroll-padding-top: 85px;
 }
 
+/* 正文：英文 Georgia，中文 微软雅黑 */
 body {
     margin: 0;
     color: var(--ink);
     background: var(--page);
-    font-family: "Baskerville", "BASKVILL", "msjhl", "Microsoft YaHei", "PingFang SC", sans-serif;
+    font-family: "Georgia", "Microsoft YaHei", "PingFang SC", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.75;
@@ -408,6 +409,7 @@ a {
     padding: 0;
 }
 
+/* 欢迎语：英文 Baskerville Old Face，中文 Microsoft JhengHei */
 .hero-content h2 {
     display: flex;
     align-items: center;
@@ -415,16 +417,16 @@ a {
     gap: 16px;
     margin: 0;
     color: var(--ink);
-    font-family: "Baskerville", "BASKVILL", "msjhl", "Microsoft YaHei", serif;
+    font-family: "BASKVILL", "Baskerville Old Face", "msjh", "Microsoft JhengHei", serif;
     font-size: 42px;
-    font-weight: 400;
+    font-weight: 400; 
     line-height: 1.2;
     letter-spacing: 0.5px;
 }
 
 .hero-icon {
-    width: 38px;
-    height: 38px;
+    width: 72px;
+    height: 72px;
     color: var(--primary);
     flex-shrink: 0;
 }
@@ -473,13 +475,18 @@ a {
     max-width: 100%;
 }
 
+/* 全宽对话框，包含对话区和底部工具栏 */
 .chat-bubble {
-    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 28px;
     border: 1px solid var(--line);
     border-radius: 16px;
     background: var(--surface);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     width: 100%;
+    min-height: 180px; /* 给底部工具栏留出空间 */
     box-sizing: border-box;
 }
 
@@ -487,13 +494,114 @@ a {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.chat-bubble p {
-    margin: 0;
-    color: var(--ink);
+.chat-text-area {
     font-size: 16px;
     line-height: 1.85;
+    color: var(--ink);
+    flex: 1; /* 占据剩余空间 */
 }
 
+/* 光标闪烁动画 */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background-color: var(--primary);
+    vertical-align: text-bottom;
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* 底部工具栏 */
+.chat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 左侧图标按钮 (+ 和 历史) */
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    border-radius: 8px;
+    cursor: default; /* 手机端不显示小手 */
+    -webkit-tap-highlight-color: transparent; /* 去除移动端点击高亮 */
+    transition: background-color 0.2s, color 0.2s;
+    outline: none;
+}
+
+.toolbar-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* 右侧模型选择 (About Me) */
+.toolbar-model {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+    outline: none;
+}
+
+.toolbar-model .chevron {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+}
+
+/* 右侧发送按钮 */
+.toolbar-send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--on-primary);
+    cursor: default;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s;
+    outline: none;
+}
+
+.toolbar-send svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* 标签 */
 .chat-tags {
     display: flex;
     flex-wrap: wrap;
@@ -749,8 +857,8 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin-top: 14px;     /* 分隔线距上方文字距离 */
-    padding-top: 10px;    /* 文字距分隔线距离 */
+    margin-top: 14px;     
+    padding-top: 10px;    
     border-top: 1px solid var(--line);
 }
 
@@ -792,7 +900,8 @@ a {
     font-size: 13px;
 }
 
-/* ===== 13. 全局 Hover 效果 ===== */
+/* ===== 13. 鼠标专属 Hover 效果 ===== */
+/* 所有非触屏的反馈都放在这里，确保触屏点击不会触发 */
 @media (hover: hover) and (pointer: fine) {
     .info-item a:hover { color: var(--link-hover); }
     .sidebar-links a:hover { color: var(--link-hover); background: var(--surface-hover); }
@@ -823,6 +932,19 @@ a {
     .project-link:hover { color: var(--primary); text-decoration: underline; }
 
     .chat-tags span:hover { background: var(--surface-hover); border-color: var(--line-strong); }
+
+    /* 装饰性工具栏的鼠标悬停反馈 */
+    .toolbar-btn:hover {
+        background: var(--surface-hover);
+        color: var(--ink);
+    }
+    .toolbar-model:hover {
+        background: var(--surface-hover);
+        color: var(--ink);
+    }
+    .toolbar-send:hover {
+        background: var(--primary-hover);
+    }
 }
 
 /* ===== 14. 响应式适配 ===== */
@@ -864,7 +986,7 @@ a {
     .hero { margin: 30px 0 15px; }
     .hero-content h2 { font-size: 32px; gap: 12px; }
     .hero-icon { width: 28px; height: 28px; }
-    .chat-bubble { padding: 20px 22px; }
+    .chat-bubble { padding: 20px 22px; min-height: auto; }
     .chat-tags { justify-content: flex-start; }
 }
 
@@ -872,7 +994,6 @@ a {
     .news-item { grid-template-columns: 76px minmax(0, 1fr); gap: 10px; }
     .news-content { padding-right: 8px; padding-left: 8px; }
     
-    /* 移动端留白也进一步压缩 */
     .project-card { padding: 20px 20px 6px; }
     .project-content { gap: 12px; }
     .project-text h3 { font-size: 16px; }
@@ -887,15 +1008,18 @@ a {
     .hero-content h2 { font-size: 28px; }
     .section { padding: 27px 0; }
     .section-heading h2 { font-size: 20px; }
+    .chat-toolbar { flex-wrap: wrap; gap: 12px; }
+    .toolbar-right { margin-left: auto; }
 }
 
 /* ===== 15. 全站主题切换 ===== */
 body, .sidebar, .topbar, .logo, .avatar, .divider, .info-icon, .info-item strong, .info-item div > span, 
 .nav-link, .lang-button, .language-switch, .theme-toggle, .hero-content h2, .hero-icon, 
-.section, .section-heading h2, .heading-mark, .chat-bubble, .chat-bubble p, 
+.section, .section-heading h2, .heading-mark, .chat-bubble, .chat-text, 
 .education-item h3, .education-item p, .education-item small, .school-logo, 
 .project-card, .project-text h3, .project-text p, .project-footer, .project-icon,
 .project-body, .project-body h3, .project-body p, 
-.project-body .tags span, .skill-pill, .skill-pill b, .page-button, .page-ellipsis {
+.project-body .tags span, .skill-pill, .skill-pill b, .page-button, .page-ellipsis,
+.toolbar-btn, .toolbar-model, .toolbar-send {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
