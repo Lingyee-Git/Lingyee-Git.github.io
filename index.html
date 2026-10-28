@@ -7,7 +7,6 @@
     <title>袁心仪 | 个人主页</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        // 提前应用已保存主题，避免深色模式刷新时闪白
         try {
             if (localStorage.getItem("portfolio-theme") === "dark") {
                 document.documentElement.dataset.theme = "dark";
@@ -15,239 +14,119 @@
         } catch (_) {}
     </script>
 </head>
-
 <body>
     <div class="layout">
-
-        <!-- 左侧：固定个人信息栏 -->
         <aside class="sidebar">
-            <a class="logo" href="#home">Lingyee</a>
-
-            <div class="profile">
-                <img class="avatar" src="images/profile.jpg" alt="袁心仪的个人照片"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-                <div class="avatar-placeholder">添加个人照片</div>
-
-                <h1 data-zh="袁心仪" data-en="Yuan Xinyi">袁心仪</h1>
-
-                <p class="role"
-                   data-zh="预防转统计 · 数据分析与 AI 学习者"
-                   data-en="Statistics Master's Student">
-                    预防转统计 · 数据分析与 AI 学习者
-                </p>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="info-list">
-                <!-- 教育 -->
-                <div class="info-item">
-                    <span class="info-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                        </svg>
-                    </span>
-                    <div>
-                        <strong data-zh="就读于" data-en="Education">就读于</strong>
-                        <span data-zh="武汉大学 · 公共卫生学院" data-en="School of Public Health, Wuhan University">武汉大学 · 公共卫生学院</span>
+            <div class="sidebar-header">
+                <div class="sidebar-header-left">
+                    <button class="sidebar-toggle-icon" aria-label="Toggle Sidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    </button>
+                    <span class="logo-text">Lingyee</span>
+                </div>
+                <div class="sidebar-header-right">
+                    <div class="language-switch" role="group" aria-label="语言切换">
+                        <button type="button" class="lang-button selected" data-lang="zh" aria-pressed="true">中</button>
+                        <button type="button" class="lang-button" data-lang="en" aria-pressed="false">EN</button>
                     </div>
                 </div>
+            </div>
 
-                <!-- 所在地 -->
-                <div class="info-item">
-                    <span class="info-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </span>
-                    <div>
-                        <strong data-zh="所在地" data-en="Location">所在地</strong>
+            <div class="profile">
+                <img class="avatar" src="images/profile.jpg" alt="袁心仪的个人照片" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+                <div class="avatar-placeholder">添加个人照片</div>
+                <h1 data-zh="袁心仪" data-en="Yuan Xinyi">袁心仪</h1>
+                <p class="role" data-zh="预防转统计 · 数据分析与 AI 学习者" data-en="Statistics Master's Student">预防转统计 · 数据分析与 AI 学习者</p>
+            </div>
+
+            <!-- 用网格容器包住这两个列表，方便移动端并排 -->
+            <div class="sidebar-lists-grid">
+                <div class="sidebar-nav-list">
+                    <a href="https://github.com/Lingyee-Git" target="_blank" rel="noopener noreferrer" class="sidebar-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:yuan.xinyi456@qq.com" class="sidebar-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                        <span data-zh="邮箱" data-en="Email">邮箱</span>
+                    </a>
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="sidebar-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M16 22a4 4 0 0 0-8 0"/><circle cx="12" cy="15" r="3"/></svg>
+                        <span data-zh="简历" data-en="Resume">简历</span>
+                    </a>
+                </div>
+
+                <div class="recents-header">
+                    <span class="recents-title">Recents</span>
+                    <button class="recents-multi-icon" aria-label="Options">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                    </button>
+                </div>
+
+                <div class="sidebar-info-list">
+                    <div class="sidebar-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        <span data-zh="武汉大学" data-en="Wuhan University">武汉大学</span>
+                    </div>
+                    <div class="sidebar-info-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span data-zh="湖北省武汉市" data-en="Wuhan, China">湖北省武汉市</span>
                     </div>
                 </div>
             </div>
 
-            <!-- 图标链接 -->
-            <div class="sidebar-links">
-                <!-- GitHub -->
-                <a href="https://github.com/Lingyee-Git" target="_blank" rel="noopener noreferrer" class="icon-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                    <span class="tooltip" data-zh="GitHub" data-en="GitHub">GitHub</span>
-                </a>
-
-                <!-- 邮箱 -->
-                <a href="mailto:yuan.xinyi456@qq.com" class="icon-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/>
-                        <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    </svg>
-                    <span class="tooltip" data-zh="邮箱" data-en="Email">邮箱</span>
-                </a>
-
-                <!-- 简历 -->
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="icon-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
-                        <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
-                        <path d="M16 22a4 4 0 0 0-8 0"/>
-                        <circle cx="12" cy="15" r="3"/>
-                    </svg>
-                    <span class="tooltip" data-zh="简历" data-en="Resume">简历</span>
-                </a>
-
-                <!-- 预留：学术主页 -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="icon-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/>
-                        <path d="M22 10v6"/>
-                        <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
-                    </svg>
-                    <span class="tooltip" data-zh="学术主页" data-en="Google Scholar">学术主页</span>
-                </a>
-
-                <!-- 预留：职业社交 -->
-                <a href="www.linkedin.com/in/lingyee456" target="_blank" rel="noopener noreferrer" class="icon-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    <span class="tooltip" data-zh="领英" data-en="LinkedIn">领英</span>
-                </a>
+            <div class="sidebar-footer-user">
+                <div class="user-avatar">XY</div>
+                <div class="user-info">
+                    <span class="user-name">Xinyi Yuan</span>
+                </div>
+                <button class="user-settings-icon" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
             </div>
-
-            <footer class="sidebar-footer">
-                © <span class="year"></span> Yuan Xinyi
-            </footer>
         </aside>
 
-        <!-- 右侧：导航栏与主要内容 -->
         <div class="main-column" id="home">
-
             <header class="topbar">
                 <nav class="navigation" aria-label="主导航">
-                    <a href="#about" class="nav-link active" aria-current="location"
-                       data-zh="关于我" data-en="About">关于我</a>
-                    <a href="#education" class="nav-link"
-                       data-zh="教育背景" data-en="Education">教育背景</a>
-                    <a href="#news" class="nav-link"
-                       data-zh="动态" data-en="News">动态</a>
-                    <a href="#projects" class="nav-link"
-                       data-zh="项目经历" data-en="Projects">项目经历</a>
-                    <a href="#skills" class="nav-link"
-                       data-zh="技能" data-en="Skills">技能</a>
+                    <a href="#about" class="nav-link active" aria-current="location" data-zh="关于我" data-en="About">关于我</a>
+                    <a href="#education" class="nav-link" data-zh="教育背景" data-en="Education">教育背景</a>
+                    <a href="#news" class="nav-link" data-zh="动态" data-en="News">动态</a>
+                    <a href="#projects" class="nav-link" data-zh="项目经历" data-en="Projects">项目经历</a>
+                    <a href="#skills" class="nav-link" data-zh="技能" data-en="Skills">技能</a>
                 </nav>
-
                 <div class="topbar-actions">
-                    <button type="button"
-                            id="theme-toggle"
-                            class="theme-toggle"
-                            aria-label="切换深色模式"
-                            aria-pressed="false"
-                            title="切换深色模式">
-
-                        <!-- 月亮：浅色模式显示 -->
-                        <svg class="icon-moon"
-                             width="18" height="18"
-                             viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             stroke-linecap="round"
-                             stroke-linejoin="round"
-                             aria-hidden="true">
+                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="切换深色模式" aria-pressed="false" title="切换深色模式">
+                        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
                         </svg>
-
-                        <!-- 太阳：深色模式显示 -->
-                        <svg class="icon-sun"
-                             width="18" height="18"
-                             viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="1.5"
-                             stroke-linecap="round"
-                             stroke-linejoin="round"
-                             aria-hidden="true">
+                        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 2v2"/>
-                            <path d="M12 20v2"/>
-                            <path d="m4.93 4.93 1.41 1.41"/>
-                            <path d="m17.66 17.66 1.41 1.41"/>
-                            <path d="M2 12h2"/>
-                            <path d="M20 12h2"/>
-                            <path d="m6.34 17.66-1.41 1.41"/>
-                            <path d="m19.07 4.93-1.41 1.41"/>
+                            <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
                         </svg>
                     </button>
-
-                    <div class="language-switch" role="group" aria-label="语言切换">
-                        <button type="button" class="lang-button selected" data-lang="zh"
-                                aria-pressed="true">中文</button>
-                        <button type="button" class="lang-button" data-lang="en"
-                                aria-pressed="false">EN</button>
-                    </div>
                 </div>
             </header>
 
             <main class="content">
-
-                <!-- 欢迎区域 -->
                 <div class="hero">
                     <div class="hero-content">
                         <h2>
-                            <!-- 左侧小图标 -->
-                            <svg class="hero-icon"
-                                viewBox="0 0 400 400"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true">
-                                <path d="M104.613 165C62.4895 136.517 97.2059 92.081 125 137.46"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M259 133.798C279.706 100.527 328.781 104.891 298.253 150"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M161.153 159C160.362 154.1 162.845 149.364 164 145"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M194 165C194.409 156.616 194.948 148.211 196 140"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M228 159C228 154.661 228 150.329 228 146"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M153 223C160.473 220.915 168.386 220.023 176 219"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M225 219C232.895 217.426 240.281 217.931 248 219"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M188 256.005C221.5 238.742 217.338 264.602 191.479 260.565"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M201 267C199.054 288.306 181.973 290.175 167 283.734"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M200.041 267C198.864 295.299 223.581 291.006 237 277.407"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M111 243C96.3264 238.228 80.8117 237.965 66 236"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M116 267C99.8675 270.808 83.7433 273.752 68 279"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M293 233C304.501 229.96 315.688 225.62 327 222"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M297 261C308.857 259.497 322.138 260.027 333 260.429"
-                                    stroke="currentColor" stroke-opacity="0.9" stroke-width="16"
-                                    stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg class="hero-icon" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M104.613 165C62.4895 136.517 97.2059 92.081 125 137.46" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M259 133.798C279.706 100.527 328.781 104.891 298.253 150" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M161.153 159C160.362 154.1 162.845 149.364 164 145" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M194 165C194.409 156.616 194.948 148.211 196 140" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M228 159C228 154.661 228 150.329 228 146" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M153 223C160.473 220.915 168.386 220.023 176 219" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M225 219C232.895 217.426 240.281 217.931 248 219" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M188 256.005C221.5 238.742 217.338 264.602 191.479 260.565" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M201 267C199.054 288.306 181.973 290.175 167 283.734" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M200.041 267C198.864 295.299 223.581 291.006 237 277.407" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M111 243C96.3264 238.228 80.8117 237.965 66 236" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M116 267C99.8675 270.808 83.7433 273.752 68 279" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M293 233C304.501 229.96 315.688 225.62 327 222" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M297 261C308.857 259.497 322.138 260.027 333 260.429" stroke="currentColor" stroke-opacity="0.9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             <span data-zh="敢谒当世贤者!" data-en="Hello, I'm Lingyee !">敢谒当世贤者!</span>
                         </h2>
@@ -256,22 +135,12 @@
 
                 <!-- 关于我 -->
                 <section class="section" id="about">
-                    <div class="section-heading">
-                        <span class="heading-mark" aria-hidden="true"></span>
-                        <h2 data-zh="关于我" data-en="About Me">关于我</h2>
-                    </div>
-
                     <div class="about-card">
                         <div class="chat-bubble">
                             <div class="chat-text-area">
-                                <span class="chat-text" 
-                                    data-zh="本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。" 
-                                    data-en="I completed my undergraduate studies in Preventive Medicine at Wuhan University. During this process, I discovered an interest in data analysis and the application of statistical knowledge, and I have been self-studying relevant statistical knowledge and software skills. I have now been admitted to the Master's program in Statistics at Central South University, where I continue to study cutting-edge knowledge and applied techniques in the field.">
-                                    本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。
-                                </span>
+                                <span class="chat-text" data-zh="本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。" data-en="I completed my undergraduate studies in Preventive Medicine at Wuhan University. During this process, I discovered an interest in data analysis and the application of statistical knowledge, and I have been self-studying relevant statistical knowledge and software skills. I have now been admitted to the Master's program in Statistics at Central South University, where I continue to study cutting-edge knowledge and applied techniques in the field.">本人本科就读于武汉大学预防医学专业，在此过程中发现自己对于数据分析和统计知识应用等的兴趣，自学统计相关专业知识与软件技术。现已录取为中南大学统计学硕士研究生，持续学习领域前沿知识与应用技术中。</span>
                                 <span class="cursor"></span>
                             </div>
-                            
                             <div class="chat-toolbar">
                                 <div class="toolbar-left">
                                     <button class="toolbar-btn" aria-label="Add">
@@ -292,211 +161,194 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="chat-tags">
                             <span class="tag-data" data-zh="数据分析" data-en="Data Analysis">数据分析</span>
                             <span class="tag-stat" data-zh="统计建模" data-en="Statistical Modeling">统计建模</span>
                             <span class="tag-ml" data-zh="机器学习" data-en="Machine Learning">机器学习</span>
+                            <span class="tag-data" data-zh="数据可视化" data-en="Data Visualization">数据可视化</span>
+                            <span class="tag-ml" data-zh="AI 探索" data-en="AI Exploration">AI 探索</span>
                         </div>
                     </div>
                 </section>
 
                 <!-- 教育背景 -->
                 <section class="section" id="education">
-                    <div class="section-heading">
-                        <span class="heading-mark" aria-hidden="true"></span>
-                        <h2 data-zh="教育背景" data-en="Education">教育背景</h2>
+                    <div class="user-message">
+                        <div class="user-bubble" data-zh="可以介绍一下你的教育经历吗？" data-en="Could you share your educational background?">可以介绍一下你的教育经历吗？</div>
                     </div>
-
+                    <div class="ai-thought">
+                        <span data-zh="检索教育背景数据，生成回复。" data-en="Retrieving educational background data, generating response.">检索教育背景数据，生成回复。</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
                     <div class="education-grid">
                         <article class="education-item">
-                            <img class="school-logo"
-                                 src="images/csu-logo.jpg"
-                                 alt="中南大学校徽"
-                                 loading="lazy">
+                            <img class="school-logo" src="images/csu-logo.jpg" alt="中南大学校徽" loading="lazy">
                             <div>
-                                <h3 data-zh="中南大学·数学与统计学院"
-                                    data-en="School of Mathematics and Statistics, Central South University">中南大学·数学与统计学院</h3>
-                                <p data-zh="统计学 · 硕士研究生（拟录取）"
-                                   data-en="Statistics · Master's Student (Incoming)">
-                                    统计学 · 硕士研究生（拟录取）
-                                </p>
+                                <h3 data-zh="中南大学·数学与统计学院" data-en="School of Mathematics and Statistics, Central South University">中南大学·数学与统计学院</h3>
+                                <p data-zh="统计学 · 硕士研究生（拟录取）" data-en="Statistics · Master's Student (Incoming)">统计学 · 硕士研究生（拟录取）</p>
                                 <small>2027 — 2030</small>
                             </div>
                         </article>
-
                         <article class="education-item">
-                            <img class="school-logo"
-                                 src="images/whu-logo.png"
-                                 alt="武汉大学校徽"
-                                 loading="lazy">
+                            <img class="school-logo" src="images/whu-logo.png" alt="武汉大学校徽" loading="lazy">
                             <div>
-                                <h3 data-zh="武汉大学·公共卫生学院"
-                                    data-en="School of Public Health, Wuhan University">武汉大学·公共卫生学院</h3>
-                                <p data-zh="预防医学 · 本科"
-                                   data-en="Preventive Medicine · Bachelor's Degree">
-                                    预防医学 · 本科
-                                </p>
+                                <h3 data-zh="武汉大学·公共卫生学院" data-en="School of Public Health, Wuhan University">武汉大学·公共卫生学院</h3>
+                                <p data-zh="预防医学 · 本科" data-en="Preventive Medicine · Bachelor's Degree">预防医学 · 本科</p>
                                 <small>2022 — 2026</small>
                             </div>
                         </article>
+                    </div>
+                    <div class="ai-actions">
+                        <button aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        <button aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></button>
+                        <button aria-label="Dislike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"/></svg></button>
+                        <button aria-label="Retry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.99 6.58 2.6L21 8"/><path d="M21 3v5h-5"/></svg></button>
                     </div>
                 </section>
 
                 <!-- 动态 -->
                 <section class="section" id="news">
-                    <div class="section-heading">
-                        <span class="heading-mark" aria-hidden="true"></span>
-                        <h2 data-zh="动态" data-en="News">动态</h2>
+                    <div class="user-message">
+                        <div class="user-bubble" data-zh="最近在忙些什么呢？" data-en="What have you been up to lately?">最近在忙些什么呢？</div>
                     </div>
-
+                    <div class="ai-thought">
+                        <span data-zh="抓取最新动态信息。" data-en="Fetching latest updates.">抓取最新动态信息。</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
                     <div class="news-timeline">
                         <article class="news-item">
                             <time class="news-date" datetime="2026-10-25">
                                 <span>2026.10.25</span>
                             </time>
                             <div class="news-content">
-                                <p data-zh="开始搭建个人主页，记录自己的学习进展与项目经历。"
-                                   data-en="Started building my personal website to document my learning journey and projects.">
-                                    开始搭建个人主页，记录自己的学习进展与项目经历。
-                                </p>
+                                <p data-zh="开始搭建个人主页，记录自己的学习进展与项目经历。" data-en="Started building my personal website to document my learning journey and projects.">开始搭建个人主页，记录自己的学习进展与项目经历。</p>
                             </div>
                         </article>
 
-                  <!-- <article class="news-item">
-                            <time class="news-date" datetime="2022-10-25">
-                                <span>2022.10.25</span>
+                        <!-- <article class="news-item">
+                            <time class="news-date" datetime="****-**-**">
+                                <span>****.**.**</span>
                             </time>
                             <div class="news-content">
-                                <p data-zh="模板"
-                                   data-en="Template">
-                                    模板
-                                </p>
+                                <p data-zh="模板" data-en="Template">模板</p>
                             </div>
                         </article> -->
+                    </div>
+                    <div class="ai-actions">
+                        <button aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        <button aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></button>
+                        <button aria-label="Dislike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"/></svg></button>
+                        <button aria-label="Retry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.99 6.58 2.6L21 8"/><path d="M21 3v5h-5"/></svg></button>
                     </div>
                 </section>
 
                 <!-- 项目经历 -->
                 <section class="section" id="projects">
-                    <div class="section-heading">
-                        <span class="heading-mark" aria-hidden="true"></span>
-                        <h2 data-zh="项目经历" data-en="Projects">项目经历</h2>
+                    <div class="user-message">
+                        <div class="user-bubble" data-zh="平时做过哪些有趣的项目？" data-en="What interesting projects have you worked on?">平时做过哪些有趣的项目？</div>
                     </div>
-
-                    <!-- Python 项目 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <div class="project-text">
-                                <h3 data-zh="Python 学习记录" data-en="Python Learning Records">Python 学习记录</h3>
-                                <p data-zh="这里主要记录了我学习 Python 的一些记录，包括课件、练习等" data-en="This mainly records some of my experiences in learning Python, including course materials, exercises, and so on.">这里主要记录了我学习 Python 的一些记录，包括课件、练习等</p>
-                            </div>
-                                <div class="project-icon">
-                                    <!-- Python 图标 -->
-                                    <svg width="24" height="24" viewBox="0 0 32 32"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="var(--ink)" d="M13.275 15.88h5.417c1.508 0 2.712-1.241 2.712-2.756v-5.164c0-1.47-1.24-2.574-2.712-2.819-0.932-0.155-1.898-0.226-2.825-0.221s-1.813 0.083-2.592 0.221c-2.295 0.405-2.712 1.254-2.712 2.819v2.067h5.423v0.689h-7.459c-1.576 0-2.956 0.947-3.388 2.75-0.498 2.066-0.52 3.355 0 5.512 0.385 1.606 1.306 2.75 2.882 2.75h1.865v-2.478c0-1.79 1.549-3.369 3.388-3.369zM12.933 8.649c-0.562 0-1.018-0.461-1.018-1.030 0-0.572 0.455-1.037 1.018-1.037 0.56 0 1.018 0.465 1.018 1.037 0 0.57-0.457 1.030-1.018 1.030zM26.826 13.465c-0.389-1.569-1.133-2.75-2.712-2.75h-2.035v2.408c0 1.867-1.583 3.439-3.388 3.439h-5.417c-1.484 0-2.712 1.27-2.712 2.756v5.164c0 1.47 1.278 2.334 2.712 2.756 1.717 0.505 3.363 0.596 5.417 0 1.365-0.395 2.712-1.191 2.712-2.756v-2.067h-5.417v-0.689h8.129c1.576 0 2.163-1.099 2.712-2.75 0.566-1.699 0.542-3.332 0-5.512zM19.033 23.794c0.562 0 1.018 0.461 1.018 1.030 0 0.572-0.456 1.037-1.018 1.037-0.56 0-1.018-0.465-1.018-1.037 0-0.57 0.457-1.030 1.018-1.030z"/>
+                    <div class="ai-thought">
+                        <span data-zh="整理项目经历与关联链接。" data-en="Organizing project experiences and links.">整理项目经历与关联链接。</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                    <div class="project-list">
+                        <article class="project-item">
+                            <h3 class="project-title">
+                                <span class="project-icon-wrapper">
+                                    <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="currentColor" d="M13.275 15.88h5.417c1.508 0 2.712-1.241 2.712-2.756v-5.164c0-1.47-1.24-2.574-2.712-2.819-0.932-0.155-1.898-0.226-2.825-0.221s-1.813 0.083-2.592 0.221c-2.295 0.405-2.712 1.254-2.712 2.819v2.067h5.423v0.689h-7.459c-1.576 0-2.956 0.947-3.388 2.75-0.498 2.066-0.52 3.355 0 5.512 0.385 1.606 1.306 2.75 2.882 2.75h1.865v-2.478c0-1.79 1.549-3.369 3.388-3.369zM12.933 8.649c-0.562 0-1.018-0.461-1.018-1.030 0-0.572 0.455-1.037 1.018-1.037 0.56 0 1.018 0.465 1.018 1.037 0 0.57-0.457 1.030-1.018 1.030zM26.826 13.465c-0.389-1.569-1.133-2.75-2.712-2.75h-2.035v2.408c0 1.867-1.583 3.439-3.388 3.439h-5.417c-1.484 0-2.712 1.27-2.712 2.756v5.164c0 1.47 1.278 2.334 2.712 2.756 1.717.505 3.363.596 5.417 0 1.365-.395 2.712-1.191 2.712-2.756v-2.067h-5.417v-0.689h8.129c1.576 0 2.163-1.099 2.712-2.75 0.566-1.699 0.542-3.332 0-5.512zM19.033 23.794c0.562 0 1.018 0.461 1.018 1.030 0 0.572-0.456 1.037-1.018 1.037-0.56 0-1.018-0.465-1.018-1.037 0-0.57 0.457-1.030 1.018-1.030z"/>
                                     </svg>
-                                </div>
-                        </div>
-                        
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <time datetime="2026-10" data-zh="始于 2026.10" data-en="Starting in Oct. 2026">始于 2026.10</time>
-                            </span>
-                            <a class="project-link" 
-                            href="https://github.com/Lingyee-Git/Python-learning-note" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            data-zh="了解更多 →" 
-                            data-en="Learn More →">了解更多 →</a>
-                        </div>
-                    </article>
-
-                    <!-- MySQL 项目 -->
-                    <article class="project-card">
-                        <div class="project-content">
-                            <div class="project-text">
-                                <h3 data-zh="MySQL 学习记录" data-en="MySQL Learning Records">MySQL 学习记录</h3>
-                                <p data-zh="这里主要记录了我学习 MySQL 的一些记录" data-en="Waiting for an Update">这里主要记录了我学习 MySQL 的一些记录</p>
+                                </span>
+                                <span data-zh="Python 学习记录" data-en="Python Learning Records">Python 学习记录</span>
+                            </h3>
+                            <p class="project-desc" data-zh="记录 Python 学习过程中的课程、练习与实践。" data-en="Documents courses, exercises, and practices during the Python learning process.">记录 Python 学习过程中的课程、练习与实践。</p>
+                            <div class="project-footer">
+                                <span class="project-date">
+                                    <time datetime="2026-10" data-zh="2026年10月 —" data-en="Oct. 2026 —">2026年10月 —</time>
+                                </span>
+                                <a class="project-link" href="https://github.com/Lingyee-Git/Python-learning-note" target="_blank" rel="noopener noreferrer" data-zh="了解更多 →" data-en="Learn More →">了解更多 →</a>
                             </div>
-                                <div class="project-icon">
-                                    <!-- MySQL 图标 -->
-                                    <svg width="24" height="24" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill="var(--ink)" d="m24.129 23.412-.508-.484c-.251-.331-.518-.624-.809-.891l-.005-.004q-.448-.407-.931-.774-.387-.266-1.064-.641c-.371-.167-.661-.46-.818-.824l-.004-.01-.048-.024c.212-.021.406-.06.592-.115l-.023.006.57-.157c.236-.074.509-.122.792-.133h.006c.298-.012.579-.06.847-.139l-.025.006q.194-.048.399-.109t.351-.109v-.169q-.145-.217-.351-.496c-.131-.178-.278-.333-.443-.468l-.005-.004q-.629-.556-1.303-1.076c-.396-.309-.845-.624-1.311-.916l-.068-.04c-.246-.162-.528-.312-.825-.435l-.034-.012q-.448-.182-.883-.399c-.097-.048-.21-.09-.327-.119l-.011-.002c-.117-.024-.217-.084-.29-.169l-.001-.001c-.138-.182-.259-.389-.355-.609l-.008-.02q-.145-.339-.314-.651-.363-.702-.702-1.427t-.651-1.452q-.217-.484-.399-.967c-.134-.354-.285-.657-.461-.942l.013.023c-.432-.736-.863-1.364-1.331-1.961l.028.038c-.463-.584-.943-1.106-1.459-1.59l-.008-.007c-.509-.478-1.057-.934-1.632-1.356l-.049-.035q-.896-.651-1.96-1.282c-.285-.168-.616-.305-.965-.393l-.026-.006-1.113-.278-.629-.048q-.314-.024-.629-.024c-.148-.078-.275-.171-.387-.279-.11-.105-.229-.204-.353-.295l-.01-.007c-.605-.353-1.308-.676-2.043-.93l-.085-.026c-.193-.113-.425-.179-.672-.179-.176 0-.345.034-.499.095l.009-.003c-.38.151-.67.458-.795.84l-.003.01c-.073.172-.115.371-.115.581 0 .368.13.705.347.968l-.002-.003q.544.725.834 1.14.217.291.448.605c.141.188.266.403.367.63l.008.021c.056.119.105.261.141.407l.003.016q.048.206.121.448.217.556.411 1.14c.141.425.297.785.478 1.128l-.019-.04q.145.266.291.52t.314.496c.065.098.147.179.241.242l.003.002c.099.072.164.185.169.313v.001c-.114.168-.191.369-.217.586l-.001.006c-.035.253-.085.478-.153.695l.008-.03c-.223.666-.351 1.434-.351 2.231 0 .258.013.512.04.763l-.003-.031c.06.958.349 1.838.812 2.6l-.014-.025c.197.295.408.552.641.787.168.188.412.306.684.306.152 0 .296-.037.422-.103l-.005.002c.35-.126.599-.446.617-.827v-.002c.048-.474.12-.898.219-1.312l-.013.067c.024-.063.038-.135.038-.211 0-.015-.001-.03-.002-.045v.002q-.012-.109.133-.206v.048q.145.339.302.677t.326.677c.295.449.608.841.952 1.202l-.003-.003c.345.372.721.706 1.127 1.001l.022.015c.212.162.398.337.566.528l.004.004c.158.186.347.339.56.454l.01.005v-.024h.048c-.039-.087-.102-.157-.18-.205l-.002-.001c-.079-.044-.147-.088-.211-.136l.005.003q-.217-.217-.448-.484t-.423-.508q-.508-.702-.969-1.467t-.871-1.555q-.194-.387-.375-.798t-.351-.798c-.049-.099-.083-.213-.096-.334v-.005c-.006-.115-.072-.214-.168-.265l-.002-.001c-.121.206-.255.384-.408.545l.001-.001c-.159.167-.289.364-.382.58l-.005.013c-.141.342-.244.739-.289 1.154l-.002.019q-.072.641-.145 1.318l-.048.024-.024.024c-.26-.053-.474-.219-.59-.443l-.002-.005q-.182-.351-.326-.69c-.248-.637-.402-1.374-.423-2.144v-.009c-.009-.122-.013-.265-.013-.408 0-.666.105-1.308.299-1.91l-.012.044q.072-.266.314-.896t.097-.871c-.05-.165-.143-.304-.265-.41l-.001-.001c-.122-.106-.233-.217-.335-.335l-.003-.004q-.169-.244-.326-.52t-.278-.544c-.165-.382-.334-.861-.474-1.353l-.022-.089c-.159-.565-.336-1.043-.546-1.503l.026.064c-.111-.252-.24-.47-.39-.669l.006.008q-.244-.326-.436-.617-.244-.314-.484-.605c-.163-.197-.308-.419-.426-.657l-.009-.02c-.048-.097-.09-.21-.119-.327l-.002-.011c-.011-.035-.017-.076-.017-.117 0-.082.024-.159.066-.223l-.001.002c.011-.056.037-.105.073-.145.039-.035.089-.061.143-.072h.002c.085-.055.188-.088.3-.088.084 0 .165.019.236.053l-.003-.001c.219.062.396.124.569.195l-.036-.013q.459.194.847.375c.298.142.552.292.792.459l-.018-.012q.194.121.387.266t.411.291h.339q.387 0 .822.037c.293.023.564.078.822.164l-.024-.007c.481.143.894.312 1.286.515l-.041-.019q.593.302 1.125.641c.589.367 1.098.743 1.577 1.154l-.017-.014c.5.428.954.867 1.38 1.331l.01.012c.416.454.813.947 1.176 1.464l.031.047c.334.472.671 1.018.974 1.584l.042.085c.081.154.163.343.234.536l.011.033q.097.278.217.57.266.605.57 1.221t.57 1.198l.532 1.161c.187.406.396.756.639 1.079l-.011-.015c.203.217.474.369.778.422l.008.001c.368.092.678.196.978.319l-.047-.017c.143.065.327.134.516.195l.04.011c.212.065.396.151.565.259l-.009-.005c.327.183.604.363.868.559l-.021-.015q.411.302.822.57.194.145.651.423t.484.52c-.114-.004-.249-.007-.384-.007-.492 0-.976.032-1.45.094l.056-.006c-.536.072-1.022.203-1.479.39l.04-.014c-.113.049-.248.094-.388.129l-.019.004c-.142.021-.252.135-.266.277v.001c.061.076.11.164.143.26l.002.006c.034.102.075.19.125.272l-.003-.006c.119.211.247.393.391.561l-.004-.005c.141.174.3.325.476.454l.007.005q.244.194.508.399c.161.126.343.25.532.362l.024.013c.284.174.614.34.958.479l.046.016c.374.15.695.324.993.531l-.016-.011q.291.169.58.375t.556.399c.073.072.137.152.191.239l.003.005c.091.104.217.175.36.193h.003v-.048c-.088-.067-.153-.16-.184-.267l-.001-.004c-.025-.102-.062-.191-.112-.273l.002.004zm-18.576-19.205q-.194 0-.363.012c-.115.008-.222.029-.323.063l.009-.003v.024h.048q.097.145.244.326t.266.351l.387.798.048-.024c.113-.082.2-.192.252-.321l.002-.005c.052-.139.082-.301.082-.469 0-.018 0-.036-.001-.054v.003c-.045-.044-.082-.096-.108-.154l-.001-.003-.081-.182c-.053-.084-.127-.15-.214-.192l-.003-.001c-.094-.045-.174-.102-.244-.169z"/>
+                        </article>
+                        <article class="project-item">
+                            <h3 class="project-title">
+                                <span class="project-icon-wrapper">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="currentColor" d="m24.129 23.412-.508-.484c-.251-.331-.518-.624-.809-.891l-.005-.004q-.448-.407-.931-.774-.387-.266-1.064-.641c-.371-.167-.661-.46-.818-.824l-.004-.01-.048-.024c.212-.021.406-.06.592-.115l-.023.006.57-.157c.236-.074.509-.122.792-.133h.006c.298-.012.579-.06.847-.139l-.025.006q.194-.048.399-.109t.351-.109v-.169q-.145-.217-.351-.496c-.131-.178-.278-.333-.443-.468l-.005-.004q-.629-.556-1.303-1.076c-.396-.309-.845-.624-1.311-.916l-.068-.04c-.246-.162-.528-.312-.825-.435l-.034-.012q-.448-.182-.883-.399c-.097-.048-.21-.09-.327-.119l-.011-.002c-.117-.024-.217-.084-.29-.169l-.001-.001c-.138-.182-.259-.389-.355-.609l-.008-.02q-.145-.339-.314-.651-.363-.702-.702-1.427t-.651-1.452q-.217-.484-.399-.967c-.134-.354-.285-.657-.461-.942l.013.023c-.432-.736-.863-1.364-1.331-1.961l.028.038c-.463-.584-.943-1.106-1.459-1.59l-.008-.007c-.509-.478-1.057-.934-1.632-1.356l-.049-.035q-.896-.651-1.96-1.282c-.285-.168-.616-.305-.965-.393l-.026-.006-1.113-.278-.629-.048q-.314-.024-.629-.024c-.148-.078-.275-.171-.387-.279-.11-.105-.229-.204-.353-.295l-.01-.007c-.605-.353-1.308-.676-2.043-.93l-.085-.026c-.193-.113-.425-.179-.672-.179-.176 0-.345.034-.499.095l.009-.003c-.38.151-.67.458-.795.84l-.003.01c-.073.172-.115.371-.115.581 0 .368.13.705.347.968l-.002-.003q.544.725.834 1.14.217.291.448.605c.141.188.266.403.367.63l.008.021c.056.119.105.261.141.407l.003.016q.048.206.121.448.217.556.411 1.14c.141.425.297.785.478 1.128l-.019-.04q.145.266.291.52t.314.496c.065.098.147.179.241.242l.003.002c.099.072.164.185.169.313v.001c-.114.168-.191.369-.217.586l-.001.006c-.035.253-.085.478-.153.695l.008-.03c-.223.666-.351 1.434-.351 2.231 0 .258.013.512.04.763l-.003-.031c.06.958.349 1.838.812 2.6l-.014-.025c.197.295.408.552.641.787.168.188.412.306.684.306.152 0 .296-.037.422-.103l-.005.002c.35-.126.599-.446.617-.827v-.002c.048-.474.12-.898.219-1.312l-.013.067c.024-.063.038-.135.038-.211 0-.015-.001-.03-.002-.045v.002q-.012-.109.133-.206v.048q.145.339.302.677t.326.677c.295.449.608.841.952 1.202l-.003-.003c.345.372.721.706 1.127 1.001l.022.015c.212.162.398.337.566.528l.004.004c.158.186.347.339.56.454l.01.005v-.024h.048c-.039-.087-.102-.157-.18-.205l-.002-.001c-.079-.044-.147-.088-.211-.136l.005.003q-.217-.217-.448-.484t-.423-.508q-.508-.702-.969-1.467t-.871-1.555q-.194-.387-.375-.798t-.351-.798c-.049-.099-.083-.213-.096-.334v-.005c-.006-.115-.072-.214-.168-.265l-.002-.001c-.121.206-.255.384-.408.545l.001-.001c-.159.167-.289.364-.382.58l-.005.013c-.141.342-.244.739-.289 1.154l-.002.019q-.072.641-.145 1.318l-.048.024-.024.024c-.26-.053-.474-.219-.59-.443l-.002-.005q-.182-.351-.326-.69c-.248-.637-.402-1.374-.423-2.144v-.009c-.009-.122-.013-.265-.013-.408 0-.666.105-1.308.299-1.91l-.012.044q.072-.266.314-.896t.097-.871c-.05-.165-.143-.304-.265-.41l-.001-.001c-.122-.106-.233-.217-.335-.335l-.003-.004q-.169-.244-.326-.52t-.278-.544c-.165-.382-.334-.861-.474-1.353l-.022-.089c-.159-.565-.336-1.043-.546-1.503l.026.064c-.111-.252-.24-.47-.39-.669l.006.008q-.244-.326-.436-.617-.244-.314-.484-.605c-.163-.197-.308-.419-.426-.657l-.009-.02c-.048-.097-.09-.21-.119-.327l-.002-.011c-.011-.035-.017-.076-.017-.117 0-.082.024-.159.066-.223l-.001.002c.011-.056.037-.105.073-.145.039-.035.089-.061.143-.072h.002c.085-.055.188-.088.3-.088.084 0 .165.019.236.053l-.003-.001c.219.062.396.124.569.195l-.036-.013q.459.194.847.375c.298.142.552.292.792.459l-.018-.012q.194.121.387.266t.411.291h.339q.387 0 .822.037c.293.023.564.078.822.164l-.024-.007c.481.143.894.312 1.286.515l-.041-.019q.593.302 1.125.641c.589.367 1.098.743 1.577 1.154l-.017-.014c.5.428.954.867 1.38 1.331l.01.012c.416.454.813.947 1.176 1.464l.031.047c.334.472.671 1.018.974 1.584l.042.085c.081.154.163.343.234.536l.011.033q.097.278.217.57.266.605.57 1.221t.57 1.198l.532 1.161c.187.406.396.756.639 1.079l-.011-.015c.203.217.474.369.778.422l.008.001c.368.092.678.196.978.319l-.047-.017c.143.065.327.134.516.195l.04.011c.212.065.396.151.565.259l-.009-.005c.327.183.604.363.868.559l-.021-.015q.411.302.822.57.194.145.651.423t.484.52c-.114-.004-.249-.007-.384-.007-.492 0-.976.032-1.45.094l.056-.006c-.536.072-1.022.203-1.479.39l.04-.014c-.113.049-.248.094-.388.129l-.019.004c-.142.021-.252.135-.266.277v.001c.061.076.11.164.143.26l.002.006c.034.102.075.19.125.272l-.003-.006c.119.211.247.393.391.561l-.004-.005c.141.174.3.325.476.454l.007.005q.244.194.508.399c.161.126.343.25.532.362l.024.013c.284.174.614.34.958.479l.046.016c.374.15.695.324.993.531l-.016-.011q.291.169.58.375t.556.399c.073.072.137.152.191.239l.003.005c.091.104.217.175.36.193h.003v-.048c-.088-.067-.153-.16-.184-.267l-.001-.004c-.025-.102-.062-.191-.112-.273l.002.004zm-18.576-19.205q-.194 0-.363.012c-.115.008-.222.029-.323.063l.009-.003v.024h.048q.097.145.244.326t.266.351l.387.798.048-.024c.113-.082.2-.192.252-.321l.002-.005c.052-.139.082-.301.082-.469 0-.018 0-.036-.001-.054v.003c-.045-.044-.082-.096-.108-.154l-.001-.003-.081-.182c-.053-.084-.127-.15-.214-.192l-.003-.001c-.094-.045-.174-.102-.244-.169z"/>
                                     </svg>
-                                </div>
-                        </div>
-                        
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <time data-zh="时间待定" data-en="Date TBD">时间待定</time>
-                            </span>
-                            <a class="project-link" 
-                            href="https://github.com/Lingyee-Git/MySQL-learning-note" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            data-zh="了解更多 →" 
-                            data-en="Learn More →">了解更多 →</a>
-                        </div>
-                    </article>
+                                </span>
+                                <span data-zh="MySQL 学习记录" data-en="MySQL Learning Records">MySQL 学习记录</span>
+                            </h3>
+                            <p class="project-desc" data-zh="整理 SQL 学习与数据查询练习。" data-en="Organize SQL learning and data query exercises.">整理 SQL 学习与数据查询练习。</p>
+                            <div class="project-footer">
+                                <span class="project-date">
+                                    <time data-zh="即将到来" data-en="Coming soon">即将到来</time>
+                                </span>
+                                <a class="project-link" href="https://github.com/Lingyee-Git/MySQL-learning-note" target="_blank" rel="noopener noreferrer" data-zh="了解更多 →" data-en="Learn More →">了解更多 →</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="ai-actions">
+                        <button aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        <button aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></button>
+                        <button aria-label="Dislike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"/></svg></button>
+                        <button aria-label="Retry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.99 6.58 2.6L21 8"/><path d="M21 3v5h-5"/></svg></button>
+                    </div>
                 </section>
 
                 <!-- 技能 -->
                 <section class="section" id="skills">
-                    <div class="section-heading">
-                        <span class="heading-mark" aria-hidden="true"></span>
-                        <h2 data-zh="技能" data-en="Skills">技能</h2>
+                    <div class="user-message">
+                        <div class="user-bubble" data-zh="你掌握了哪些技能和工具？" data-en="What skills and tools do you have?">你掌握了哪些技能和工具？</div>
                     </div>
-
-                    <div class="skill-list">
-                        <span class="skill-pill">
-                            <b>Python</b>
-                            <span data-zh="基础编程与数据处理"
-                                  data-en="Basic Programming & Data Processing">
-                                基础编程与数据处理
+                    <div class="ai-thought">
+                        <span data-zh="匹配个人技能矩阵，整理输出。" data-en="Matching personal skill matrix, organizing output.">匹配个人技能矩阵，整理输出。</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 3v18h18"/><path d="M18 9l-5 5-2-2-4 4"/>
+                                </svg>
                             </span>
-                        </span>
-
-                        <span class="skill-pill">
-                            <b>SQL</b>
-                            <span data-zh="数据查询与处理"
-                                  data-en="Data Query & Processing">
-                                数据查询与处理
+                            <div class="skill-content">
+                                <h3 data-zh="统计分析" data-en="Statistical Analysis">统计分析</h3>
+                                <p>R · SAS · SPSS</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                                </svg>
                             </span>
-                        </span>
-
-                        <span class="skill-pill">
-                            <b>R</b>
-                            <span data-zh="统计分析"
-                                  data-en="Statistical Analysis">
-                                统计分析
+                            <div class="skill-content">
+                                <h3 data-zh="编程语言" data-en="Programming">编程语言</h3>
+                                <p>Python · SQL</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
                             </span>
-                        </span>
-
-                        <span class="skill-pill">
-                            <b>SAS</b>
-                            <span data-zh="数据分析"
-                                  data-en="Data Analysis">
-                                数据分析
-                            </span>
-                        </span>
-
-                        <span class="skill-pill">
-                            <b>SPSS</b>
-                            <span data-zh="统计分析"
-                                  data-en="Statistical Analysis">
-                                统计分析
-                            </span>
-                        </span>
+                            <div class="skill-content">
+                                <h3 data-zh="科研工具" data-en="Research Tools">科研工具</h3>
+                                <p>Zotero · Git · LaTeX</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-actions">
+                        <button aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                        <button aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></button>
+                        <button aria-label="Dislike"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2"/></svg></button>
+                        <button aria-label="Retry"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.99 6.58 2.6L21 8"/><path d="M21 3v5h-5"/></svg></button>
                     </div>
                 </section>
-
             </main>
         </div>
     </div>
-
     <script src="script.js" defer></script>
 </body>
 </html>
