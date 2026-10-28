@@ -128,7 +128,7 @@
     });
 
     /* ===== 动态列表：按时间排序、限量、分页 ===== */
-    const NEWS_PER_PAGE = 5;
+    const NEWS_PER_PAGE = 3;
     const newsTimeline = document.querySelector(".news-timeline");
 
     if (newsTimeline) {
@@ -173,46 +173,87 @@
 
         function renderPagination() {
             pagination.innerHTML = "";
-            if (totalPages <= 1) return;
+            // 只有一页时不显示分页
+            if (totalPages <= 1) {
+                pagination.style.display = "none";
+                return;
+            }
+            pagination.style.display = "flex";
 
             const isEnglish = root.lang.toLowerCase().startsWith("en");
-            const lang = isEnglish ? "en" : "zh";
-
-            const prev = document.createElement("button");
-            prev.type = "button";
-            prev.className = "page-button";
-            prev.dataset.zh = "上一页";
-            prev.dataset.en = "Previous";
-            prev.textContent = lang === "en" ? "Previous" : "上一页";
-            prev.disabled = currentPage === 1;
-            prev.addEventListener("click", () => renderNewsPage(currentPage - 1));
-            pagination.appendChild(prev);
-
-            for (let i = 1; i <= totalPages; i++) {
+            
+            // 创建左右箭头
+            const createArrowBtn = (isPrev) => {
                 const btn = document.createElement("button");
                 btn.type = "button";
-                btn.className = "page-button";
-                if (i === currentPage) {
-                    btn.classList.add("active");
+                btn.className = "page-button arrow-button";
+                btn.disabled = isPrev ? currentPage === 1 : currentPage === totalPages;
+                btn.setAttribute("aria-label", isPrev ? (isEnglish ? "Previous" : "上一页") : (isEnglish ? "Next" : "下一页"));
+                btn.innerHTML = isPrev ? "&lt;" : "&gt;";
+                btn.addEventListener("click", () => renderNewsPage(isPrev ? currentPage - 1 : currentPage + 1));
+                return btn;
+            };
+
+            // 创建数字按钮
+            const createNumBtn = (num) => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "page-button num-button";
+                if (num === currentPage) {
+                    btn.classList.add("current");
                     btn.setAttribute("aria-current", "page");
                 }
-                btn.textContent = i;
-                btn.dataset.ariaZh = `第 ${i} 页`;
-                btn.dataset.ariaEn = `Page ${i}`;
-                btn.setAttribute("aria-label", lang === "en" ? `Page ${i}` : `第 ${i} 页`);
-                btn.addEventListener("click", () => renderNewsPage(i));
-                pagination.appendChild(btn);
+                btn.textContent = num;
+                btn.addEventListener("click", () => renderNewsPage(num));
+                return btn;
+            };
+
+            // 创建省略号
+            const createEllipsis = () => {
+                const span = document.createElement("span");
+                span.className = "page-ellipsis";
+                span.textContent = "...";
+                return span;
+            };
+
+            const fragment = document.createDocumentFragment();
+            
+            // 渲染左箭头
+            fragment.appendChild(createArrowBtn(true));
+
+            // 渲染页码逻辑
+            if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) {
+                    fragment.appendChild(createNumBtn(i));
+                }
+            } else {
+                if (currentPage <= 4) {
+                    for (let i = 1; i <= 5; i++) {
+                        fragment.appendChild(createNumBtn(i));
+                    }
+                    fragment.appendChild(createEllipsis());
+                    fragment.appendChild(createNumBtn(totalPages));
+                } else if (currentPage >= totalPages - 3) {
+                    fragment.appendChild(createNumBtn(1));
+                    fragment.appendChild(createEllipsis());
+                    for (let i = totalPages - 4; i <= totalPages; i++) {
+                        fragment.appendChild(createNumBtn(i));
+                    }
+                } else {
+                    fragment.appendChild(createNumBtn(1));
+                    fragment.appendChild(createEllipsis());
+                    fragment.appendChild(createNumBtn(currentPage - 1));
+                    fragment.appendChild(createNumBtn(currentPage));
+                    fragment.appendChild(createNumBtn(currentPage + 1));
+                    fragment.appendChild(createEllipsis());
+                    fragment.appendChild(createNumBtn(totalPages));
+                }
             }
 
-            const next = document.createElement("button");
-            next.type = "button";
-            next.className = "page-button";
-            next.dataset.zh = "下一页";
-            next.dataset.en = "Next";
-            next.textContent = lang === "en" ? "Next" : "下一页";
-            next.disabled = currentPage === totalPages;
-            next.addEventListener("click", () => renderNewsPage(currentPage + 1));
-            pagination.appendChild(next);
+            // 渲染右箭头
+            fragment.appendChild(createArrowBtn(false));
+
+            pagination.appendChild(fragment);
         }
 
         renderNewsPage(1);
